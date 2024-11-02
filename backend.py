@@ -15,7 +15,7 @@ def prompt(data: dict):
         raise TypeError("Expected 'data' to be a dictionary")
     else: 
         payload = json.dumps({
-        "model": "Meta-Llama-3.1-70B-Instruct",
+        "model": "Mistral-Nemo-12B-Instruct-2407",
         "messages": [
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": "Hello!"},
@@ -36,7 +36,10 @@ def prompt(data: dict):
 
     response = requests.request("POST", url, headers=headers, data=payload)
     # Extract and return the reply from the assistant
-    return response
+    if response.status_code == 200:
+        return response.headers.get('Content-Type')
+    else: 
+        return "failed"
 
 
 
