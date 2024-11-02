@@ -1,21 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://wll16wcgdkh1"]
+[gd_scene load_steps=6 format=3 uid="uid://dko75ved06bh6"]
 
-[ext_resource type="PackedScene" uid="uid://cvpihc0gxcjfm" path="res://scenes/wall.tscn" id="1_kda31"]
+[ext_resource type="PackedScene" uid="uid://vnwr3jimmylu" path="res://scenes/levels/level_template.tscn" id="1_e3uxy"]
+[ext_resource type="PackedScene" uid="uid://bke0dgo8ox7eu" path="res://scenes/wall.tscn" id="1_kda31"]
+[ext_resource type="PackedScene" uid="uid://bjea43707cf6s" path="res://scenes/ai_navigation.tscn" id="3_arjpn"]
+[ext_resource type="PackedScene" uid="uid://cd7x8bgjuhs50" path="res://scenes/movement.tscn" id="5_7xgdc"]
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gfeo7"]
+vertices = PackedVector2Array(546, 948, 716.43, 1025, 80, 1025, 436, 948, 281, 948, 171, 948, 80, 80, 171, 138, 716.43, 80, 281, 138, 716.43, 586.344, 546, 138, 835.57, 515.656, 835.57, 80, 1865, 80, 1865, 1025, 835.57, 1025, 835.57, 586.344, 716.43, 515.656, 436, 138)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2), PackedInt32Array(5, 4, 2), PackedInt32Array(5, 2, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 1, 0, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(12, 15, 17, 18), PackedInt32Array(18, 17, 10), PackedInt32Array(18, 10, 11), PackedInt32Array(8, 18, 11), PackedInt32Array(19, 3, 4, 9), PackedInt32Array(19, 9, 8), PackedInt32Array(8, 11, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(28, 28, 1925, 27, 1925, 1085, 19, 1085)])
+source_geometry_mode = 1
+agent_radius = 30.0
 
-[node name="Wall" parent="." instance=ExtResource("1_kda31")]
-position = Vector2(576, 25)
-scale = Vector2(1152, 50)
+[node name="Level1" instance=ExtResource("1_e3uxy")]
 
-[node name="Wall2" parent="." instance=ExtResource("1_kda31")]
-position = Vector2(25, 324)
-scale = Vector2(50, 648)
+[node name="Wall5" parent="." index="4" instance=ExtResource("1_kda31")]
+position = Vector2(355, 325)
+scale = Vector2(680, 60)
 
-[node name="Wall3" parent="." instance=ExtResource("1_kda31")]
-position = Vector2(576, 623)
-scale = Vector2(1152, 50)
+[node name="AI" parent="." index="5" instance=ExtResource("3_arjpn")]
+position = Vector2(136, 178)
+rot_speed = 2.0
+speed = 200.0
+path = Array[Vector2]([Vector2(142, 166), Vector2(990, 166), Vector2(990, 480), Vector2(560, 480)])
 
-[node name="Wall4" parent="." instance=ExtResource("1_kda31")]
-position = Vector2(1127, 324)
-scale = Vector2(50, 648)
+[node name="Wall6" parent="." index="6" instance=ExtResource("1_kda31")]
+position = Vector2(1000, 325)
+scale = Vector2(250, 60)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="7"]
+navigation_polygon = SubResource("NavigationPolygon_gfeo7")
+
+[node name="Node2D" parent="." index="8" instance=ExtResource("5_7xgdc")]
+position = Vector2(154, 479)

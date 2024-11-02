@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgx5c742wyyks"]
 
 [ext_resource type="PackedScene" uid="uid://bjea43707cf6s" path="res://scenes/ai_navigation.tscn" id="1_dfrmv"]
-[ext_resource type="PackedScene" path="res://movement.tscn" id="2_tmo80"]
+[ext_resource type="PackedScene" uid="uid://cd7x8bgjuhs50" path="res://scenes/movement.tscn" id="2_tmo80"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lelv0"]
 vertices = PackedVector2Array(259, 550, 992, 283, 992.961, 283, 320.07, 1014.96, 95, -550, 95, -547.289, 87.2734, -563.117, 379.953, 1070, -1962.5, 1070, 1185.27, 316.148, 1149.21, 283, 1156, 283, 1931, 1070, 492.242, 1070, 1931, -1062.06, 1156, -817, -819.906, 62.6562, 95, -384.367, 95, 381.07, -819.859, 74.6562, -1941.48, -1066.93, 992, -817, 259, -550, -906.562, 385.344, -1919.84, 79.3438, 95, 550, -905.844, 549.344, 95, 545.078, -1920.56, -84.6719, -882.898, -89.0703)

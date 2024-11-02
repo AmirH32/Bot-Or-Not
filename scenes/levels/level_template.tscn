@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://vnwr3jimmylu"]
+
+[ext_resource type="PackedScene" uid="uid://bke0dgo8ox7eu" path="res://scenes/wall.tscn" id="1_x50qu"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_x50qu")]
+position = Vector2(576, 25)
+scale = Vector2(1152, 50)
+
+[node name="Wall2" parent="." instance=ExtResource("1_x50qu")]
+position = Vector2(25, 324)
+scale = Vector2(50, 648)
+
+[node name="Wall3" parent="." instance=ExtResource("1_x50qu")]
+position = Vector2(576, 623)
+scale = Vector2(1152, 50)
+
+[node name="Wall4" parent="." instance=ExtResource("1_x50qu")]
+position = Vector2(1127, 324)
+scale = Vector2(50, 648)
