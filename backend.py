@@ -46,6 +46,7 @@ def get_data():
 
 @app.route('/api/data', methods=['POST'])
 def post_data():
+    print("got request")
     data = request.json
     if data:
         # You can process the data here as needed
