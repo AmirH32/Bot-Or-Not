@@ -6,6 +6,7 @@
 size = Vector2(1, 1)
 
 [node name="Wall" type="StaticBody2D"]
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_icelg")
