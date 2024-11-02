@@ -19,6 +19,7 @@ speed = 400.0
 angle_tolerance = 0.2
 path = Array[Vector2]([Vector2(-500, 0), Vector2(-500, 250), Vector2(500, -100), Vector2(0, 0)])
 human_detector = NodePath("human_detector")
+fov = 1.543
 human_detector_poly = NodePath("human_detector/CollisionPolygon2D")
 
 [node name="AI_navigation" type="NavigationAgent2D" parent="."]
