@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjea43707cf6s"]
+[gd_scene load_steps=5 format=3 uid="uid://bjea43707cf6s"]
 
 [ext_resource type="Script" path="res://scripts/ai_movement.gd" id="1_vih7l"]
 
@@ -8,13 +8,17 @@ size = Vector2(64, 64)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c2y5x"]
 size = Vector2(32, 32)
 
-[node name="AI" type="Node2D" node_paths=PackedStringArray("nav")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwt0g"]
+radius = 50.0
+
+[node name="AI" type="Node2D" node_paths=PackedStringArray("nav", "human_detector")]
 script = ExtResource("1_vih7l")
 nav = NodePath("AI_navigation")
 rot_speed = 3.0
 speed = 400.0
 angle_tolerance = 0.2
 path = Array[Vector2]([Vector2(-500, 0), Vector2(-500, 250), Vector2(500, -100), Vector2(0, 0)])
+human_detector = NodePath("human_detector")
 
 [node name="AI_navigation" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
@@ -37,5 +41,13 @@ monitorable = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="human_detector"]
 polygon = PackedVector2Array(0, 0, 500, 250, 500, -250)
 
+[node name="human_collider" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="human_collider"]
+shape = SubResource("CircleShape2D_xwt0g")
+
 [connection signal="navigation_finished" from="AI_navigation" to="." method="_on_ai_navigation_navigation_finished"]
 [connection signal="target_reached" from="AI_navigation" to="." method="_on_ai_navigation_target_reached"]
+[connection signal="body_entered" from="human_collider" to="." method="_on_human_collider_body_entered"]

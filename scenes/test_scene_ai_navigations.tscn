@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgx5c742wyyks"]
+[gd_scene load_steps=5 format=3 uid="uid://cgx5c742wyyks"]
 
 [ext_resource type="PackedScene" uid="uid://bjea43707cf6s" path="res://scenes/ai_navigation.tscn" id="1_dfrmv"]
 
@@ -12,6 +12,8 @@ agent_radius = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsx7y"]
 size = Vector2(64, 1000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mssv7"]
 
 [node name="test_scene_ai-navigations" type="Node2D"]
 
@@ -69,3 +71,10 @@ rotation = 1.11629
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(187, 0)
 shape = SubResource("RectangleShape2D_jsx7y")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(379, 673)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_mssv7")
