@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd7x8bgjuhs50"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_58tov"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_58tov")
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(6.73831e-07, 0.773295, 0.488647, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
