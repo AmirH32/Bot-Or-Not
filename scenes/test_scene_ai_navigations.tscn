@@ -1,19 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgx5c742wyyks"]
 
 [ext_resource type="PackedScene" uid="uid://bjea43707cf6s" path="res://scenes/ai_navigation.tscn" id="1_dfrmv"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://cd7x8bgjuhs50" path="res://scenes/movement.tscn" id="2_uqcxm"]
-=======
-[ext_resource type="PackedScene" path="res://movement.tscn" id="2_tmo80"]
->>>>>>> 5ba76de999ea64312730b478100bb6027d87bff4
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lelv0"]
-vertices = PackedVector2Array(259, 550, 992, 283, 992.961, 283, 320.07, 1014.96, 95, -550, 95, -547.289, 87.2734, -563.117, 379.953, 1070, -1962.5, 1070, 1185.27, 316.148, 1149.21, 283, 1156, 283, 1931, 1070, 492.242, 1070, 1931, -1062.06, 1156, -817, -819.906, 62.6562, 95, -384.367, 95, 381.07, -819.859, 74.6562, -1941.48, -1066.93, 992, -817, 259, -550, -906.562, 385.344, -1919.84, 79.3438, 95, 550, -905.844, 549.344, 95, 545.078, -1920.56, -84.6719, -882.898, -89.0703)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(3, 7, 8), PackedInt32Array(9, 10, 11), PackedInt32Array(12, 13, 9), PackedInt32Array(14, 12, 9, 11, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 14, 15, 21), PackedInt32Array(1, 0, 22, 21), PackedInt32Array(20, 21, 22, 6), PackedInt32Array(19, 18, 23, 24), PackedInt32Array(0, 3, 8, 25), PackedInt32Array(26, 27, 25, 8), PackedInt32Array(24, 23, 26, 8), PackedInt32Array(24, 8, 20, 28), PackedInt32Array(29, 28, 20, 6), PackedInt32Array(6, 22, 4)])
+vertices = PackedVector2Array(249.422, 1017.94, 251.656, 1020, -1912.01, 1020, -955.617, 599.547, 1881, 1020, 606.133, 1020, 1255.92, 313.18, 1881, -1012.12, -769.773, 93.8281, 45, -304.289, 45, 331.297, -769.648, 124.453, 1206, 267.281, 1206, -867, -1891.97, -1016.87, 942, -867, -832.992, 124.711, -956.781, 335.562, -852.031, 134.023, -1900.65, -134.742, 110.25, -630.008, 45, 595.289, 45, 600, -1903.24, 129.258, -856.523, 124.812, 309, 600, 942, 264.547, 309, -600, 124.906, -600, 45, -600, 45, -598.117, -894.562, -139.023, 48.8281, -600)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 4, 6), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(7, 6, 12, 13), PackedInt32Array(14, 7, 13, 15), PackedInt32Array(16, 11, 10, 17, 18), PackedInt32Array(19, 14, 15, 20), PackedInt32Array(3, 21, 22), PackedInt32Array(2, 23, 24, 18, 17), PackedInt32Array(2, 17, 3), PackedInt32Array(0, 3, 22), PackedInt32Array(0, 22, 25), PackedInt32Array(26, 0, 25), PackedInt32Array(26, 25, 27, 15), PackedInt32Array(27, 28, 20, 15), PackedInt32Array(29, 30, 31, 19), PackedInt32Array(20, 32, 29), PackedInt32Array(19, 20, 29)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1991, -1117, 1981, -1112, 1981, 1120, -2013, 1120)])
 parsed_geometry_type = 1
 source_geometry_mode = 2
-agent_radius = 50.0
+agent_radius = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsx7y"]
 size = Vector2(64, 1000)
@@ -22,20 +18,6 @@ size = Vector2(64, 1000)
 
 [node name="AI" parent="." instance=ExtResource("1_dfrmv")]
 path = Array[Vector2]([Vector2(0, 0), Vector2(1000, 0), Vector2(0, 750), Vector2(-1900, -600), Vector2(0, 0), Vector2(0, 1000), Vector2(1850, 0)])
-xrayvision = true
-
-[node name="AI2" parent="." instance=ExtResource("1_dfrmv")]
-position = Vector2(1076, 948)
-rot_speed = 1.0
-speed = 200.0
-path = Array[Vector2]([Vector2(1200, 1000), Vector2(-1500, -500), Vector2(-1500, 500), Vector2(500, 500)])
-xrayvision = true
-view_dist = 5000.0
-fov = 0.1
-
-[node name="AI3" parent="." instance=ExtResource("1_dfrmv")]
-position = Vector2(-1156, 880)
-path = Array[Vector2]([Vector2(0, 0), Vector2(-500, 500), Vector2(1500, 1000)])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(10, 0)
@@ -78,7 +60,7 @@ position = Vector2(-1361, -192)
 rotation = 1.56654
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" groups=["navigation_polygon_source_geometry_group"]]
-position = Vector2(187, 0.000244141)
+position = Vector2(187, 0)
 shape = SubResource("RectangleShape2D_jsx7y")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="." groups=["navigation_polygon_source_geometry_group"]]
@@ -89,14 +71,9 @@ rotation = 1.11629
 position = Vector2(187, 0)
 shape = SubResource("RectangleShape2D_jsx7y")
 
-<<<<<<< HEAD
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(379, 673)
 collision_layer = 2
 
 [node name="Node2D" parent="." instance=ExtResource("2_uqcxm")]
 position = Vector2(379, 676)
-=======
-[node name="Node2D" parent="." instance=ExtResource("2_tmo80")]
-position = Vector2(405, 511)
->>>>>>> 5ba76de999ea64312730b478100bb6027d87bff4

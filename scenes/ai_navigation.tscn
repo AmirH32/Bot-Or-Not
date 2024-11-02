@@ -11,7 +11,7 @@ size = Vector2(32, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xwt0g"]
 radius = 50.0
 
-[node name="AI" type="Node2D" node_paths=PackedStringArray("nav", "human_detector", "human_detector_poly")]
+[node name="AI" type="Node2D" node_paths=PackedStringArray("nav", "human_detector")]
 script = ExtResource("1_vih7l")
 nav = NodePath("AI_navigation")
 rot_speed = 3.0
@@ -19,8 +19,6 @@ speed = 400.0
 angle_tolerance = 0.2
 path = Array[Vector2]([Vector2(-500, 0), Vector2(-500, 250), Vector2(500, -100), Vector2(0, 0)])
 human_detector = NodePath("human_detector")
-fov = 1.543
-human_detector_poly = NodePath("human_detector/CollisionPolygon2D")
 
 [node name="AI_navigation" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
