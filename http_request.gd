@@ -1,6 +1,7 @@
 extends HTTPRequest
 
 var http_request = HTTPRequest
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	http_request = HTTPRequest.new()
@@ -11,22 +12,23 @@ func _ready() -> void:
 	if error != OK:
 		print("Error making GET request:", error)
 
-	# Connect the request_completed signal
-	http_request.connect("request_completed", self, "_on_request_completed")
-
-func _on_request_completed(result, response_code, headers, body):
-	if response_code == 200:
-		var json_instance = JSON.new()
-		var json = json_instance.parse(body)
-		print("GET response:", json.result["message"])
-	else:
-		print("GET request failed with response code:", response_code)
 
 func send_post_request(data):
 	var json_data = JSON.stringify(data)
-	http_request.request("http://127.0.0.1:5000/api/data", [], true, HTTPClient.METHOD_POST, json_data)
-
+	
+	# Include the Content-Type header for JSON
+	var headers = ["Content-Type: application/json"]
+	#request(url: String, custom_headers: PackedStringArray = PackedStringArray(), method: HTTPClient.Method = 0, request_data: String = "")
+	http_request.request("http://127.0.0.1:5000/api/data", headers, HTTPClient.METHOD_POST, json_data)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_button_funct_pressed() -> void:
+	print("Button pressed")
+	var data = {
+		"prompt": "I like watermelons"
+	}
+	send_post_request(data)
