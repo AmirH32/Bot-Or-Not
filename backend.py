@@ -1,31 +1,42 @@
 from flask import Flask, request, jsonify
-from openai import OpenAI
+import requests
+import json
 
 
-
-client = OpenAI(
-    api_key = ""
-)
 
 app = Flask(__name__)
 
+
+ARLIAI_API_KEY = "dec15259-a611-485c-871f-e2ee49a280da"
+
 def prompt(data: dict):
-    messages = ""
+    url = "https://api.arliai.com/v1/chat/completions"
     if not isinstance(data, dict):
         raise TypeError("Expected 'data' to be a dictionary")
     else: 
-        prompt_text = data["prompt"]
-        chat_completion = client.chat.completions.create(
-        messages =[
-            {
-                "role": "user",
-                "content": "Say this is a test",
-            }
+        payload = json.dumps({
+        "model": "Meta-Llama-3.1-70B-Instruct",
+        "messages": [
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": "Hello!"},
+            {"role": "assistant", "content": "Hi!, how can I help you today?"},
+            {"role": "user", "content": "Say hello!"}
         ],
-        model="gpt-3.5-turbo",
-        )
+        "repetition_penalty": 1.1,
+        "temperature": 0.7,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_tokens": 1024,
+        "stream": True
+        })
+        headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f"Bearer {ARLIAI_API_KEY}"
+        }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
     # Extract and return the reply from the assistant
-    return messages
+    return response
 
 
 
