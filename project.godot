@@ -11,10 +11,21 @@ config_version=5
 [application]
 
 config/name="Bot Or Not"
+<<<<<<< HEAD
 run/main_scene="res://scenes/movement.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+=======
+run/main_scene="res://scenes/world.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Bot Or Not"
+
+>>>>>>> 5ba76de999ea64312730b478100bb6027d87bff4
 [input]
 
 ui_left={
@@ -49,3 +60,9 @@ ui_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="wall"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"

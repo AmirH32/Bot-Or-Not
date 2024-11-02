@@ -8,6 +8,8 @@ extends Node2D
 @export var human_detector : Area2D
 @export var xrayvision : bool = false
 @export var view_dist : float = 500
+@export_range(0, 6) var fov : float = 90
+@export var human_detector_poly : CollisionPolygon2D
 var hostile = true
 var current_path : int
 var rel_target : Vector2
@@ -16,6 +18,7 @@ var rel_target : Vector2
 func _ready() -> void:
 	current_path = 0
 	nav.target_position=path[current_path]
+	human_detector_poly.polygon = PackedVector2Array([Vector2(0, 0), Vector2(view_dist, -view_dist*sin(fov)), Vector2(view_dist, view_dist*sin(fov))])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
