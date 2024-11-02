@@ -11,16 +11,9 @@ config_version=5
 [application]
 
 config/name="Bot Or Not"
-run/main_scene="res://movement.tscn"
+run/main_scene="res://scenes/movement.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
-
-
-[layer_names]
-
-2d_physics/layer_1="wall"
-2d_physics/layer_2="player"
-2d_physics/layer_3="enemy"
 
 [input]
 

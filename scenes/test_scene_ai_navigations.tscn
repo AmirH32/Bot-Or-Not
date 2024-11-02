@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgx5c742wyyks"]
 
 [ext_resource type="PackedScene" uid="uid://bjea43707cf6s" path="res://scenes/ai_navigation.tscn" id="1_dfrmv"]
+[ext_resource type="PackedScene" uid="uid://cd7x8bgjuhs50" path="res://scenes/movement.tscn" id="2_uqcxm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lelv0"]
 vertices = PackedVector2Array(249.422, 1017.94, 251.656, 1020, -1912.01, 1020, -955.617, 599.547, 1881, 1020, 606.133, 1020, 1255.92, 313.18, 1881, -1012.12, -769.773, 93.8281, 45, -304.289, 45, 331.297, -769.648, 124.453, 1206, 267.281, 1206, -867, -1891.97, -1016.87, 942, -867, -832.992, 124.711, -956.781, 335.562, -852.031, 134.023, -1900.65, -134.742, 110.25, -630.008, 45, 595.289, 45, 600, -1903.24, 129.258, -856.523, 124.812, 309, 600, 942, 264.547, 309, -600, 124.906, -600, 45, -600, 45, -598.117, -894.562, -139.023, 48.8281, -600)
@@ -12,8 +13,6 @@ agent_radius = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsx7y"]
 size = Vector2(64, 1000)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mssv7"]
 
 [node name="test_scene_ai-navigations" type="Node2D"]
 
@@ -76,5 +75,5 @@ shape = SubResource("RectangleShape2D_jsx7y")
 position = Vector2(379, 673)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_mssv7")
+[node name="Node2D" parent="." instance=ExtResource("2_uqcxm")]
+position = Vector2(379, 676)
