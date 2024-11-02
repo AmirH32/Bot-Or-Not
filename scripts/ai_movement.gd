@@ -8,7 +8,7 @@ extends Node2D
 @export var human_detector : Area2D
 @export var xrayvision : bool = false
 @export var view_dist : float = 500
-@export var fov : float = 90
+@export_range(0, 6) var fov : float = 90
 @export var human_detector_poly : CollisionPolygon2D
 var hostile = true
 var current_path : int
