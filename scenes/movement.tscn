@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cd7x8bgjuhs50"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_58tov"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_58tov"]
 [ext_resource type="Texture2D" uid="uid://dprdemrwi0ele" path="res://Screenshot 2024-11-02 145124.png" id="2_14kpq"]
 [ext_resource type="Script" path="res://scripts/http_request.gd" id="3_sdo5s"]
 
