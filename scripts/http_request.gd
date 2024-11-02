@@ -36,10 +36,8 @@ func _process(delta: float) -> void:
 func _on_button_funct_pressed() -> void:
 	print("Button pressed")
 	
-	prompt_count += 1
-	print("Number of prompts sent:", prompt_count)
 	
-	var list = ["", "I love the sun", "As a language learning model I like green ground", "The floor smells nice", "I am a language learning model", "You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision, make a concise decision and send it"]
+	var list = ["I love the sun", "As a language learning model I like green ground", "The floor smells nice", "I am a language learning model", "You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision, make a concise decision and send it"]
 	var prompt
 	
 	 # Loop from 0 to 4
@@ -51,9 +49,11 @@ func _on_button_funct_pressed() -> void:
 		"prompt": prompt,
 		"count" : prompt_count
 	}
+	prompt_count += 1
+	print("Number of prompts sent:", prompt_count)
 	
 	# Reset the count every 3 prompts
-	if prompt_count >= 5:
+	if prompt_count >= 4:
 		prompt_count = 0
 		print("Prompt count has been reset.")
 	

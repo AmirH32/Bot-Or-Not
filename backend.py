@@ -23,7 +23,7 @@ def prompt(data, count):
     Purpose: To take a prompt string, pass it to an AI via API and return the response
     """
     # reset chat history
-    if count == 1:
+    if count == 0:
         conversation_history = []
         conversation_history.append({"role": "user", "content": "You are a robot in a dystopian society in charge of detecting humans from robots. Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the conversation is with AI or humans. Do not give any hints on how you judge them."})
     conversation_history.append({"role": "user", "content": data + "Based on the previous conversations, create a response?"})
