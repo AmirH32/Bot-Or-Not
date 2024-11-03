@@ -13,16 +13,20 @@ offset_right = 400.0
 offset_bottom = 50.0
 text = "SEND"
 
-[node name="Answer" type="LineEdit" parent="."]
-custom_minimum_size = Vector2(300, 50)
-offset_right = 300.0
-offset_bottom = 50.0
-placeholder_text = "Answer"
-
 [node name="TextEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(400, 500)
 offset_top = -500.0
 offset_right = 400.0
+editable = false
+wrap_mode = 1
+indent_wrapped_lines = true
+
+[node name="Answer" type="LineEdit" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(300, 50)
+offset_right = 300.0
+offset_bottom = 50.0
+placeholder_text = "Answer"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(198, -230)
