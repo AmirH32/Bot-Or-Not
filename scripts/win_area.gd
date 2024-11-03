@@ -22,7 +22,7 @@ func _on_player_entered(_body: PhysicsBody2D):
 	enemy_in_area = false
 	player_in_area = true
 	await get_tree().create_timer(2.0).timeout
-	if not enemy_in_area and player_in_area:
+	if not enemy_in_area and player_in_area and not get_tree().paused:
 		win.emit(0) # TODO: Add bamboozle tracking
 
 
