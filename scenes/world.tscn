@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcn07eoqgqkkx"]
+[gd_scene load_steps=2 format=3 uid="uid://dcn07eoqgqkkx"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_yj1mm"]
-[ext_resource type="PackedScene" uid="uid://d2iksyhoy708o" path="res://scenes/ui.tscn" id="2_k0v44"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_yj1mm")
@@ -22,7 +21,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.513233, 0.513233, 0.513233, 1)
-
-[node name="UI" parent="." instance=ExtResource("2_k0v44")]
-
-[connection signal="open_level" from="UI" to="." method="start_game"]

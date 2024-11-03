@@ -1,4 +1,5 @@
 @tool
+class_name AI_robot
 extends Node2D
 
 @export var nav : NavigationAgent2D
@@ -14,6 +15,8 @@ extends Node2D
 var hostile = true
 var current_path : int
 var rel_target : Vector2
+var chat : Chat
+var cam : Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,6 +61,19 @@ func _on_ai_navigation_navigation_finished() -> void:
 
 
 func _on_human_collider_body_entered(body: Node2D) -> void:
+	cam = get_viewport().get_camera_2d()
+	cam.enabled=false
+	get_tree().paused=true
 	emit_signal("touched_player")
+	var chat : Chat = preload("res://scenes/Chat.tscn").instantiate()
+	add_child(chat)
+	chat.parent_ai = self
+	chat.global_rotation=0
+	chat.global_position=get_viewport().get_camera_2d().global_position
 	hostile=false
 	human_detector.monitoring=false
+
+func resume(died: bool):
+	get_tree().paused=false
+	cam.enabled=true
+	remove_child(chat)

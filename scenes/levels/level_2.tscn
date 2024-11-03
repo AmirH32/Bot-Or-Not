@@ -4,13 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bke0dgo8ox7eu" path="res://scenes/wall.tscn" id="2_s68o3"]
 [ext_resource type="PackedScene" uid="uid://bjea43707cf6s" path="res://scenes/ai_navigation.tscn" id="4_k214p"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_0larn"]
-vertices = PackedVector2Array(546, 948, 716.43, 1025, 80, 1025, 436, 948, 281, 948, 171, 948, 80, 80, 171, 138, 716.43, 80, 281, 138, 716.43, 586.344, 546, 138, 835.57, 515.656, 835.57, 80, 1865, 80, 1865, 1025, 835.57, 1025, 835.57, 586.344, 716.43, 515.656, 436, 138)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2), PackedInt32Array(5, 4, 2), PackedInt32Array(5, 2, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 1, 0, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(12, 15, 17, 18), PackedInt32Array(18, 17, 10), PackedInt32Array(18, 10, 11), PackedInt32Array(8, 18, 11), PackedInt32Array(19, 3, 4, 9), PackedInt32Array(19, 9, 8), PackedInt32Array(8, 11, 19)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(28, 28, 1925, 27, 1925, 1085, 19, 1085)])
-source_geometry_mode = 1
-agent_radius = 30.0
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_38ce8"]
 vertices = PackedVector2Array(546, 948, 716.43, 1025, 80, 1025, 436, 948, 281, 948, 171, 948, 80, 80, 171, 138, 716.43, 80, 281, 138, 716.43, 586.344, 546, 138, 835.57, 515.656, 835.57, 80, 1865, 80, 1865, 1025, 835.57, 1025, 835.57, 586.344, 716.43, 515.656, 436, 138)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2), PackedInt32Array(5, 4, 2), PackedInt32Array(5, 2, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 1, 0, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(12, 15, 17, 18), PackedInt32Array(18, 17, 10), PackedInt32Array(18, 10, 11), PackedInt32Array(8, 18, 11), PackedInt32Array(19, 3, 4, 9), PackedInt32Array(19, 9, 8), PackedInt32Array(8, 11, 19)])
@@ -18,19 +11,28 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(24, 22, 1920, 22, 1920,
 source_geometry_mode = 1
 agent_radius = 30.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0larn"]
+vertices = PackedVector2Array(546, 948, 716.43, 1025, 80, 1025, 436, 948, 281, 948, 171, 948, 80, 80, 171, 138, 716.43, 80, 281, 138, 716.43, 586.344, 546, 138, 835.57, 515.656, 835.57, 80, 1865, 80, 1865, 1025, 835.57, 1025, 835.57, 586.344, 716.43, 515.656, 436, 138)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2), PackedInt32Array(5, 4, 2), PackedInt32Array(5, 2, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 1, 0, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(12, 15, 17, 18), PackedInt32Array(18, 17, 10), PackedInt32Array(18, 10, 11), PackedInt32Array(8, 18, 11), PackedInt32Array(19, 3, 4, 9), PackedInt32Array(19, 9, 8), PackedInt32Array(8, 11, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(28, 28, 1925, 27, 1925, 1085, 19, 1085)])
+source_geometry_mode = 1
+agent_radius = 30.0
+
 [node name="Level1" instance=ExtResource("1_01fsc")]
 
-[node name="Wall" parent="." index="1"]
+[node name="NavigationRegion2D" parent="." index="0"]
+navigation_polygon = SubResource("NavigationPolygon_38ce8")
+
+[node name="WinArea" parent="." index="1"]
+position = Vector2(1892, 557)
+
+[node name="Wall" parent="." index="2"]
 position = Vector2(960, 25)
 scale = Vector2(1920, 50)
 
-[node name="Wall2" parent="." index="2"]
+[node name="Wall2" parent="." index="3"]
 position = Vector2(25, 540)
 scale = Vector2(50, 1080)
-
-[node name="Wall3" parent="." index="3"]
-position = Vector2(960, 1080)
-scale = Vector2(1920, 50)
 
 [node name="Wall5" parent="." index="4" instance=ExtResource("2_s68o3")]
 position = Vector2(226, 543)
@@ -58,19 +60,28 @@ navigation_polygon = SubResource("NavigationPolygon_0larn")
 enabled = false
 
 [node name="AI2" parent="." index="10" instance=ExtResource("4_k214p")]
-position = Vector2(980, 950)
+position = Vector2(972, 648)
 path = Array[Vector2]([Vector2(980, 950), Vector2(980, 150)])
 
-[node name="AI3" parent="." index="11" instance=ExtResource("4_k214p")]
-position = Vector2(1200, 150)
+[node name="AI4" parent="." index="11" instance=ExtResource("4_k214p")]
+position = Vector2(1479, 921)
+path = Array[Vector2]([Vector2(1500, 950), Vector2(1500, 150)])
+
+[node name="AI3" parent="." index="12" instance=ExtResource("4_k214p")]
+position = Vector2(1264, 150)
 path = Array[Vector2]([Vector2(1200, 950), Vector2(1200, 150)])
 
-[node name="Wall4" parent="." index="12"]
+[node name="AI5" parent="." index="13" instance=ExtResource("4_k214p")]
+position = Vector2(1760, 217)
+path = Array[Vector2]([Vector2(1700, 950), Vector2(1700, 150)])
+
+[node name="Wall3" parent="." index="14"]
+position = Vector2(960, 1080)
+scale = Vector2(1920, 50)
+
+[node name="Wall4" parent="." index="15"]
 position = Vector2(1920, 540)
 scale = Vector2(50, 1080)
 
-[node name="NavigationRegion2D" parent="." index="13"]
-navigation_polygon = SubResource("NavigationPolygon_38ce8")
-
-[node name="Player" parent="." index="14"]
+[node name="Player" parent="." index="16"]
 position = Vector2(124, 559)

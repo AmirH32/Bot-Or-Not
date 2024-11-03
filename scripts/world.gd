@@ -30,6 +30,7 @@ func win(_num_bamboozled: int):
 	reset_level()
 	$UI.win()
 
+
 func die():
 	reset_level()
 	$UI.die()
