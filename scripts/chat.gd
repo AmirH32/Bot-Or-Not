@@ -81,6 +81,7 @@ func _on_send_pressed():
 			# Sends post request to judge the player
 			http_request_node.send_post_request(post_data)
 			
+			prompt_count += 1
 		###
 		
 		
