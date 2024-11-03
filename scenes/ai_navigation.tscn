@@ -17,6 +17,7 @@ human_detector = NodePath("human_detector")
 view_dist = 250.0
 fov = 0.5
 human_detector_poly = NodePath("human_detector/CollisionPolygon2D")
+difficulty = 1
 
 [node name="AI_navigation" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0

@@ -91,10 +91,12 @@ position = Vector2(810, 300)
 path = Array[Vector2]([Vector2(810, 300), Vector2(810, 860), Vector2(400, 860), Vector2(800, 600), Vector2(810, 300), Vector2(400, 300)])
 view_dist = 350.0
 fov = 0.624
+difficulty = 3
 
 [node name="AI2" parent="." index="20" instance=ExtResource("3_c3m40")]
 position = Vector2(1914, 1132)
 path = Array[Vector2]([Vector2(800, 1125), Vector2(800, 100), Vector2(1950, 100), Vector2(1950, 1125)])
+difficulty = 3
 
 [node name="Wall11" parent="." index="21" instance=ExtResource("2_82qc7")]
 position = Vector2(1077, 502)
@@ -123,9 +125,11 @@ speed = 500.0
 path = Array[Vector2]([Vector2(1305, 475), Vector2(1305, 485), Vector2(1295, 485), Vector2(1295, 475)])
 view_dist = 500.0
 fov = 0.952
+difficulty = 3
 
 [node name="AI4" parent="." index="27" instance=ExtResource("3_c3m40")]
 position = Vector2(1705, 907)
 path = Array[Vector2]([Vector2(1700, 900), Vector2(1700, 300)])
 view_dist = 750.0
 fov = 0.471
+difficulty = 3

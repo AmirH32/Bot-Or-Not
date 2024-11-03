@@ -72,6 +72,7 @@ speed = 200.0
 path = Array[Vector2]([Vector2(160, 420), Vector2(160, 250), Vector2(900, 250), Vector2(900, 420)])
 view_dist = 150.0
 fov = 0.913
+difficulty = 2
 
 [node name="AI2" parent="." index="17" instance=ExtResource("4_g5l4q")]
 position = Vector2(650, 350)
@@ -82,6 +83,7 @@ path = Array[Vector2]([Vector2(650, 350), Vector2(640, 350), Vector2(640, 360), 
 xrayvision = true
 view_dist = 2000.0
 fov = 0.059
+difficulty = 3
 
 [node name="Player" parent="." index="19"]
 position = Vector2(94, 544)

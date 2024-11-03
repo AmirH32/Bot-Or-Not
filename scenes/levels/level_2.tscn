@@ -53,6 +53,7 @@ scale = Vector2(59.133, -435.311)
 [node name="AI" parent="." index="8" instance=ExtResource("4_k214p")]
 position = Vector2(361, 556)
 path = Array[Vector2]([Vector2(358, 113), Vector2(622, 113), Vector2(486, 980)])
+difficulty = 2
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." index="9"]
 visible = false
@@ -62,6 +63,7 @@ enabled = false
 [node name="AI2" parent="." index="10" instance=ExtResource("4_k214p")]
 position = Vector2(972, 648)
 path = Array[Vector2]([Vector2(980, 950), Vector2(980, 150)])
+difficulty = 2
 
 [node name="AI4" parent="." index="11" instance=ExtResource("4_k214p")]
 position = Vector2(1479, 921)
@@ -74,6 +76,7 @@ path = Array[Vector2]([Vector2(1200, 950), Vector2(1200, 150)])
 [node name="AI5" parent="." index="13" instance=ExtResource("4_k214p")]
 position = Vector2(1760, 217)
 path = Array[Vector2]([Vector2(1700, 950), Vector2(1700, 150)])
+difficulty = 2
 
 [node name="Wall3" parent="." index="14"]
 position = Vector2(960, 1080)
