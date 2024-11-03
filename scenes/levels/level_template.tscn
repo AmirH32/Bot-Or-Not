@@ -14,6 +14,9 @@ agent_radius = 30.0
 [node name="Level1" type="Node2D"]
 process_mode = 1
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_iil7k")
+
 [node name="WinArea" parent="." instance=ExtResource("3_v63lc")]
 position = Vector2(79, 325)
 
@@ -32,9 +35,6 @@ scale = Vector2(1152, 50)
 [node name="Wall4" parent="." instance=ExtResource("1_x50qu")]
 position = Vector2(1127, 324)
 scale = Vector2(50, 648)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_iil7k")
 
 [node name="Player" parent="." instance=ExtResource("2_qta8w")]
 position = Vector2(575, 324)
