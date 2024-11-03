@@ -3,7 +3,7 @@ extends Node
 
 # Reference the TextEdit and Answer (input field) nodes
 @onready var text_edit = $TextEdit       # Main TextEdit box
-@onready var answer_input = $Answer      # Input field (e.g., LineEdit or another TextEdit)
+@onready var answer_input = $AnswerEdit      # Input field (e.g., LineEdit or another TextEdit)
 @onready var http_request_node = $HTTPRequest # The HTTP Request node
 var prompt_count: int = 0 # initialise prompt count
 

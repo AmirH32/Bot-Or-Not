@@ -14,14 +14,6 @@ offset_right = 954.0
 offset_bottom = 243.0
 text = "SEND"
 
-[node name="Answer" type="LineEdit" parent="."]
-custom_minimum_size = Vector2(300, 50)
-offset_left = -538.0
-offset_top = 179.0
-offset_right = 752.0
-offset_bottom = 245.0
-placeholder_text = "Answer"
-
 [node name="TextEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(400, 500)
 offset_left = -536.0
@@ -30,11 +22,18 @@ offset_right = 954.0
 offset_bottom = 171.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+wrap_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(198, -230)
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 script = ExtResource("2_tkvc6")
+
+[node name="AnswerEdit" type="TextEdit" parent="."]
+offset_left = -536.0
+offset_top = 179.0
+offset_right = 749.0
+offset_bottom = 243.0
 
 [connection signal="pressed" from="Send" to="." method="_on_send_pressed"]
