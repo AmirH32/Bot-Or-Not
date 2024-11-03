@@ -12,6 +12,7 @@ extends Node2D
 @export var view_dist : float = 500
 @export_range(0, 1.53) var fov : float = 90
 @export var human_detector_poly : CollisionPolygon2D
+@export var difficulty : int
 var hostile = true
 var current_path : int
 var rel_target : Vector2
@@ -71,6 +72,7 @@ func _on_human_collider_body_entered(body: Node2D) -> void:
 	chat.parent_ai = self
 	chat.global_rotation=0
 	chat.global_position=get_viewport().get_camera_2d().global_position
+	chat.difficulty = difficulty
 	hostile=false
 	human_detector.monitoring=false
 
