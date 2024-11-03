@@ -29,6 +29,7 @@ offset_right = 754.0
 offset_bottom = 401.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+editable = false
 wrap_mode = 1
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
