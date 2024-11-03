@@ -21,9 +21,9 @@ func _process(_delta):
 
 
 func _on_start_button_pressed():
-	$TitleScreen.hide()
-	# $GamemodeSelect.show()
-	$LevelSelect.show()
+	$Content/Main/TitleScreen.hide()
+	# $Content/Main/GamemodeSelect.show()
+	$Content/Main/LevelSelect.show()
 	
 
 
@@ -32,30 +32,35 @@ func _on_survival_pressed():
 
 
 func _on_escape_pressed():
-	$GamemodeSelect.hide()
-	$LevelSelect.show()
+	$Content/Main/GamemodeSelect.hide()
+	$Content/Main/LevelSelect.show()
 
 func activate_level_select():
 	for level_name in levels.keys():
 		var button = Button.new()
 		button.text = level_name
 		button.pressed.connect(select_level.bind(levels[level_name]))
-		$LevelSelect/VBoxContainer/ScrollContainer/VBoxContainer.add_child(button)
+		$Content/Main/LevelSelect/VBoxContainer/ScrollContainer/VBoxContainer.add_child(button)
 
 func select_level(level_filename: String):
-	$LevelSelect.hide()
+	$Content/Main/LevelSelect.hide()
 	open_level.emit(level_filename)
 
 
 func _on_level_select_pressed():
-	$WinScreen.hide()
-	$DeathScreen.hide()
-	$LevelSelect.show()
+	$Content/Main/WinScreen.hide()
+	$Content/Main/DeathScreen.hide()
+	$Content/Main/LevelSelect.show()
 
 func win():
-	$WinScreen/NumBamboozled.text = str(Globals.num_bamboozled)
-	$WinScreen.show()
+	$Content/Main/WinScreen/NumBamboozled.text = str(Globals.num_bamboozled)
+	$Content/Main/WinScreen.show()
 
 func die():
-	$DeathScreen/NumBamboozled.text = str(Globals.num_bamboozled)
-	$DeathScreen.show()
+	$Content/Main/DeathScreen/NumBamboozled.text = str(Globals.num_bamboozled)
+	$Content/Main/DeathScreen.show()
+
+
+
+func quit():
+	get_tree().quit()

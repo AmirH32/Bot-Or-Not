@@ -63,6 +63,8 @@ func _on_ai_navigation_navigation_finished() -> void:
 
 func _on_human_collider_body_entered(body: Node2D) -> void:
 	if !hostile: return
+	hostile=false
+	human_detector.monitoring=false
 	cam = get_viewport().get_camera_2d()
 	cam.enabled=false
 	get_tree().paused=true
@@ -73,8 +75,6 @@ func _on_human_collider_body_entered(body: Node2D) -> void:
 	chat.global_rotation=0
 	chat.global_position=get_viewport().get_camera_2d().global_position
 	chat.difficulty = difficulty
-	hostile=false
-	human_detector.monitoring=false
 
 func resume(died: bool):
 	get_tree().paused=false
