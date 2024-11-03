@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.125911, 0.125911, 0.125911, 1)
 
-[node name="TitleScreen" type="Control" parent="."]
+[node name="Content" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +36,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="TitleScreen"]
+[node name="Main" type="Control" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TitleScreen" type="Control" parent="Content/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Content/Main/TitleScreen"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -48,7 +60,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 80
 text = "Bot or Not"
 
-[node name="StartButton" type="Button" parent="TitleScreen"]
+[node name="StartButton" type="Button" parent="Content/Main/TitleScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,25 +76,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "Start"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TitleScreen"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -520.0
-offset_top = -391.0
-offset_right = 520.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 56
-text = "Use WASD or arrow keys to move
-Avoid the evil AI!
-If you get caught, try to make the AI think you are also an AI"
-threaded = true
-
-[node name="GamemodeSelect" type="Control" parent="."]
+[node name="GamemodeSelect" type="Control" parent="Content/Main"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -95,7 +89,7 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="GamemodeSelect"]
+[node name="Title" type="Label" parent="Content/Main/GamemodeSelect"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -107,7 +101,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 60
 text = "Select Gamemode"
 
-[node name="Survival" type="Button" parent="GamemodeSelect"]
+[node name="Survival" type="Button" parent="Content/Main/GamemodeSelect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.3
@@ -121,7 +115,7 @@ text = "Survival
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="Description" type="Label" parent="GamemodeSelect/Survival"]
+[node name="Description" type="Label" parent="Content/Main/GamemodeSelect/Survival"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -131,7 +125,7 @@ grow_horizontal = 2
 text = "Survive for as long as possible against infinite AI guards"
 autowrap_mode = 3
 
-[node name="Escape" type="Button" parent="GamemodeSelect"]
+[node name="Escape" type="Button" parent="Content/Main/GamemodeSelect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -144,7 +138,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Escape"
 
-[node name="Description" type="Label" parent="GamemodeSelect/Escape"]
+[node name="Description" type="Label" parent="Content/Main/GamemodeSelect/Escape"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -154,7 +148,7 @@ grow_horizontal = 2
 text = "Reach the exit without being caught"
 autowrap_mode = 3
 
-[node name="LevelSelect" type="Control" parent="."]
+[node name="LevelSelect" type="Control" parent="Content/Main"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -163,7 +157,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/Main/LevelSelect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,22 +165,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="LevelSelect/VBoxContainer"]
+[node name="Title" type="Label" parent="Content/Main/LevelSelect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 60
 text = "Select Level
 "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="LevelSelect/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/Main/LevelSelect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/VBoxContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/Main/LevelSelect/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="WinScreen" type="Control" parent="."]
+[node name="WinScreen" type="Control" parent="Content/Main"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -195,7 +189,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="WinScreen"]
+[node name="Title" type="Label" parent="Content/Main/WinScreen"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -208,7 +202,7 @@ theme_override_font_sizes/font_size = 60
 text = "You Survived!"
 horizontal_alignment = 1
 
-[node name="BamboozledLabel" type="Label" parent="WinScreen"]
+[node name="BamboozledLabel" type="Label" parent="Content/Main/WinScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -223,7 +217,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "AIs Bamboozled:"
 
-[node name="NumBamboozled" type="Label" parent="WinScreen"]
+[node name="NumBamboozled" type="Label" parent="Content/Main/WinScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -238,7 +232,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 
-[node name="LevelSelectButton" type="Button" parent="WinScreen"]
+[node name="LevelSelectButton" type="Button" parent="Content/Main/WinScreen"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -252,7 +246,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Back to Level Select"
 
-[node name="DeathScreen" type="Control" parent="."]
+[node name="DeathScreen" type="Control" parent="Content/Main"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -261,7 +255,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="DeathScreen"]
+[node name="Title" type="Label" parent="Content/Main/DeathScreen"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -274,7 +268,7 @@ theme_override_font_sizes/font_size = 60
 text = "You  Died..."
 horizontal_alignment = 1
 
-[node name="BamboozledLabel" type="Label" parent="DeathScreen"]
+[node name="BamboozledLabel" type="Label" parent="Content/Main/DeathScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -289,7 +283,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "AIs Bamboozled:"
 
-[node name="NumBamboozled" type="Label" parent="DeathScreen"]
+[node name="NumBamboozled" type="Label" parent="Content/Main/DeathScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -304,7 +298,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 
-[node name="LevelSelectButton" type="Button" parent="DeathScreen"]
+[node name="LevelSelectButton" type="Button" parent="Content/Main/DeathScreen"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -318,8 +312,23 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Back to Level Select"
 
-[connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="GamemodeSelect/Survival" to="." method="_on_survival_pressed"]
-[connection signal="pressed" from="GamemodeSelect/Escape" to="." method="_on_escape_pressed"]
-[connection signal="pressed" from="WinScreen/LevelSelectButton" to="." method="_on_level_select_pressed"]
-[connection signal="pressed" from="DeathScreen/LevelSelectButton" to="." method="_on_level_select_pressed"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Content"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/normal_font_size = 56
+text = "Use WASD or arrow keys to move
+Avoid the evil AI!
+If you get caught, try to make the AI think you are also an AI"
+threaded = true
+
+[node name="QuitButton" type="Button" parent="Content"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Content/Main/TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Content/Main/GamemodeSelect/Survival" to="." method="_on_survival_pressed"]
+[connection signal="pressed" from="Content/Main/GamemodeSelect/Escape" to="." method="_on_escape_pressed"]
+[connection signal="pressed" from="Content/Main/WinScreen/LevelSelectButton" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Content/Main/DeathScreen/LevelSelectButton" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Content/QuitButton" to="." method="quit"]
