@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://vnwr3jimmylu"]
+[gd_scene load_steps=5 format=3 uid="uid://vnwr3jimmylu"]
 
 [ext_resource type="PackedScene" uid="uid://bke0dgo8ox7eu" path="res://scenes/wall.tscn" id="1_x50qu"]
+[ext_resource type="PackedScene" uid="uid://dl7xbqfmamg68" path="res://scenes/player.tscn" id="2_qta8w"]
+[ext_resource type="PackedScene" uid="uid://chr6gddjw0l84" path="res://scenes/win_area.tscn" id="3_v63lc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iil7k"]
 vertices = PackedVector2Array(1072, 80, 1072, 265, 845, 265, 80, 80, 845, 385, 1072, 385, 1072, 568, 80, 568, 80, 385, 725, 385, 725, 265, 80, 265)
@@ -10,6 +12,9 @@ source_geometry_mode = 1
 agent_radius = 30.0
 
 [node name="Level1" type="Node2D"]
+
+[node name="WinArea" parent="." instance=ExtResource("3_v63lc")]
+position = Vector2(79, 325)
 
 [node name="Wall" parent="." instance=ExtResource("1_x50qu")]
 position = Vector2(576, 25)
@@ -29,3 +34,6 @@ scale = Vector2(50, 648)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_iil7k")
+
+[node name="Player" parent="." instance=ExtResource("2_qta8w")]
+position = Vector2(575, 324)

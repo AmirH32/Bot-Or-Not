@@ -17,6 +17,7 @@ var rel_target : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_user_signal("touched_player")
 	current_path = 0
 	nav.target_position=path[current_path]
 	human_detector_poly.polygon = PackedVector2Array([Vector2(0, 0), Vector2(view_dist, -view_dist*tan(fov)), Vector2(view_dist, view_dist*tan(fov))])
@@ -57,6 +58,6 @@ func _on_ai_navigation_navigation_finished() -> void:
 
 
 func _on_human_collider_body_entered(body: Node2D) -> void:
-	#if body is player
+	emit_signal("touched_player")
 	hostile=false
 	human_detector.monitoring=false
