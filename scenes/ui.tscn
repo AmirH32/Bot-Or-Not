@@ -168,6 +168,140 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="WinScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_right = 262.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "You Survived!"
+horizontal_alignment = 1
+
+[node name="BamboozledLabel" type="Label" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -27.5
+offset_right = 159.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "AIs Bamboozled:"
+
+[node name="NumBamboozled" type="Label" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = 26.0
+offset_right = 11.5
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+
+[node name="LevelSelectButton" type="Button" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back to Level Select"
+
+[node name="DeathScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_right = 262.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "You  Died..."
+horizontal_alignment = 1
+
+[node name="BamboozledLabel" type="Label" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -27.5
+offset_right = 159.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "AIs Bamboozled:"
+
+[node name="NumBamboozled" type="Label" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = 26.0
+offset_right = 11.5
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+
+[node name="LevelSelectButton" type="Button" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.5
+offset_top = -63.0
+offset_right = 193.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back to Level Select"
+
 [connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="GamemodeSelect/Survival" to="." method="_on_survival_pressed"]
 [connection signal="pressed" from="GamemodeSelect/Escape" to="." method="_on_escape_pressed"]
+[connection signal="pressed" from="WinScreen/LevelSelectButton" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="DeathScreen/LevelSelectButton" to="." method="_on_level_select_pressed"]
