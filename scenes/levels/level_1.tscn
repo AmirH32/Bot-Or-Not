@@ -11,7 +11,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(24, 22, 1132, 17, 1131,
 source_geometry_mode = 1
 agent_radius = 30.0
 
-[node name="Level1" instance=ExtResource("1_e3uxy")]
+[node name="Level2" instance=ExtResource("1_e3uxy")]
 z_index = 10
 
 [node name="NavigationRegion2D" parent="." index="0"]
