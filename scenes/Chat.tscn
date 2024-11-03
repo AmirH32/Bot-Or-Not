@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdvux3ufglckk"]
+[gd_scene load_steps=4 format=3 uid="uid://bdvux3ufglckk"]
 
 [ext_resource type="Script" path="res://Scripts/chat.gd" id="1_5lp2x"]
 [ext_resource type="Script" path="res://scripts/http_request.gd" id="2_tkvc6"]
+[ext_resource type="Theme" uid="uid://b54cr0s1ueyj" path="res://button_theme.tres" id="3_eqhel"]
 
 [node name="Chat" type="Node2D"]
 process_mode = 3
@@ -40,6 +41,14 @@ offset_right = 549.0
 offset_bottom = 473.0
 wrap_mode = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="ResultButton" type="Button" parent="."]
+offset_left = 440.0
+offset_top = -400.0
+offset_right = 750.0
+offset_bottom = -301.0
+theme = ExtResource("3_eqhel")
+theme_override_font_sizes/font_size = 33
+text = "Continue"
 
 [connection signal="pressed" from="Send" to="." method="_on_send_pressed"]
+[connection signal="pressed" from="ResultButton" to="." method="resume_ai"]
