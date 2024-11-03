@@ -4,7 +4,8 @@ extends Control
 var levels := {
 	"Level 1": "level_1",
 	"Level 2": "level_2",
-	"Level 3": "level_3"
+	"Level 3": "level_3",
+	"Level 4": "level_4"
 }
 
 signal open_level(level_file_name: String)
