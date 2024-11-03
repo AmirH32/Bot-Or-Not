@@ -67,7 +67,7 @@ def prompt(data, count, QUESTIONS):
 
                                      When judging them after you are told to do, You must follow the format: 'You are a human! h' or 'You are an AI! a' 
                                      where the last character is 'a' or 'h' to denote whether you judge them as AI or human."""})
-    elif count ==3: 
+    elif count ==4: 
         conversation_history.append({"role": "user", "content": "This is your last question "+data + "Based on previous conversations, create a response." })
     else: 
         conversation_history.append({"role": "user", "content": data + "Based on the previous conversations, create a response."})
