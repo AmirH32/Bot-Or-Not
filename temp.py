@@ -15,7 +15,7 @@ response = requests.get(url, headers=headers)
 if response.status_code == 200:
     data = response.json()
     print("Response:", data)
-    for i in data:
-        print(type(i))
+    for i in data["data"]:
+        print(i["name"])
 else:
     print("Request failed with status code:", response.status_code)
