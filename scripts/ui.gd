@@ -38,5 +38,15 @@ func activate_level_select():
 	for level_name in levels.keys():
 		var button = Button.new()
 		button.text = level_name
-		button.pressed.connect(open_level.emit.bind(levels[level_name]))
+		button.pressed.connect(select_level.bind(levels[level_name]))
 		$LevelSelect/VBoxContainer/ScrollContainer/VBoxContainer.add_child(button)
+
+func select_level(level_filename: String):
+	$LevelSelect.hide()
+	open_level.emit(level_filename)
+
+
+func _on_level_select_pressed():
+	$WinScreen.hide()
+	$DeathScreen.hide()
+	$LevelSelect.show()
