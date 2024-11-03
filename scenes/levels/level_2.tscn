@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmeh7vx53p8jy"]
+[gd_scene load_steps=7 format=3 uid="uid://bmeh7vx53p8jy"]
 
 [ext_resource type="PackedScene" uid="uid://vnwr3jimmylu" path="res://scenes/levels/level_template.tscn" id="1_01fsc"]
 [ext_resource type="PackedScene" uid="uid://bke0dgo8ox7eu" path="res://scenes/wall.tscn" id="2_s68o3"]
 [ext_resource type="PackedScene" uid="uid://bjea43707cf6s" path="res://scenes/ai_navigation.tscn" id="4_k214p"]
+[ext_resource type="PackedScene" uid="uid://buylp0oplm2sj" path="res://scenes/movement.tscn" id="4_mejhh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0larn"]
 vertices = PackedVector2Array(546, 948, 716.43, 1025, 80, 1025, 436, 948, 281, 948, 171, 948, 80, 80, 171, 138, 716.43, 80, 281, 138, 716.43, 586.344, 546, 138, 835.57, 515.656, 835.57, 80, 1865, 80, 1865, 1025, 835.57, 1025, 835.57, 586.344, 716.43, 515.656, 436, 138)
@@ -71,3 +72,6 @@ path = Array[Vector2]([Vector2(1200, 950), Vector2(1200, 150)])
 
 [node name="NavigationRegion2D" parent="." index="12"]
 navigation_polygon = SubResource("NavigationPolygon_38ce8")
+
+[node name="CharacterBody2D" parent="." index="13" instance=ExtResource("4_mejhh")]
+position = Vector2(123, 567)
