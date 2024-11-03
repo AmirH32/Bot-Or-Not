@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdvux3ufglckk"]
 
-[ext_resource type="Script" path="res://Scripts/chat.gd" id="1_5lp2x"]
+[ext_resource type="Script" path="res://scripts/chat.gd" id="1_5lp2x"]
 [ext_resource type="Script" path="res://scripts/http_request.gd" id="2_tkvc6"]
 [ext_resource type="Theme" uid="uid://b54cr0s1ueyj" path="res://button_theme.tres" id="3_eqhel"]
 
