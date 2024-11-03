@@ -22,6 +22,7 @@ shape = SubResource("RectangleShape2D_n3mqa")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 0
 offset_left = -25.0
 offset_top = -25.0
 offset_right = 25.0

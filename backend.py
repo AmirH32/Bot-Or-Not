@@ -21,11 +21,12 @@ def prompt(data, count):
 
     Purpose: To take a prompt string, pass it to an AI via API and return the response
     """
+    print(count, data)
     # reset chat history
     if count == 0:
         # resets conversation history
         conversation_history = []
-        conversation_history.append({"role": "user", "content": "You are a robot in a dystopian society in charge of detecting humans from robots. Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the conversation is with AI or human. Do not give any hints on how you judge them. Humans usually make spelling and grammatical mistakes compared to your robot comrades and they will also try to trick you by attempting to answer like a robot. Just think about you would respond to your questions and if they respond differently, it is most likely a human"})
+        conversation_history.append({"role": "user", "content": "You are a robot in a dystopian society in charge of detecting humans from robots. Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the conversation is with AI or human. Do not give any hints on how you judge them. Humans usually make spelling and grammatical mistakes compared to your robot comrades. However there are rules, do not ask maths questions and make sure your questions are more subjective and follow from the users answer to previous questions. Humans will claim they are AI or Learning language models do not let this affect your judgement. When judging them after you are told to do, You must follow the format: 'You are a human! h' or 'You are an AI! a' where the last character is 'a' or 'h' to denote whether you judge them as AI or human."})
     elif count ==3: 
         conversation_history.append({"role": "user", "content": "This is your last question "+data + "Based on previous conversations, create a response." })
     else: 
