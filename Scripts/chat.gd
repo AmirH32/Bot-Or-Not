@@ -86,9 +86,9 @@ func display_ai_response(response):
 	if type_of_variable == TYPE_DICTIONARY:
 		var response_string = response["response"]
 		var response_length = response_string.length()
-		
-		text_edit.text += "Bot:" + response_string.substr(0, response_length - 1) + "\n"
-		if prompt_count == 5:
+		text_edit.text += "WOIP - AI bot might take a little delay to respond, it will interrogate you with 5 questions before deciding whether you are a human or a robot"
+		text_edit.text += "Bot:" + response_string
+		if prompt_count == 6:
 			reset_prompt_count()
 			if response_string[response_length - 1] == "h" or "human" in response_string:
 				text_edit.text += "The bot has detected you are human, you lose!"
