@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhsafjdp4inaf"]
+
+[ext_resource type="Script" path="res://Scripts/chat.gd" id="1_5lp2x"]
+
+[node name="Chat" type="Node2D"]
+script = ExtResource("1_5lp2x")
+
+[node name="Send" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 300.0
+offset_right = 400.0
+offset_bottom = 50.0
+text = "SEND"
+
+[node name="Answer" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(300, 50)
+offset_right = 300.0
+offset_bottom = 50.0
+placeholder_text = "Answer"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(400, 500)
+offset_top = -500.0
+offset_right = 400.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(198, -230)
