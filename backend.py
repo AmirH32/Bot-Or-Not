@@ -55,11 +55,14 @@ def prompt(data, count, QUESTIONS):
         question = QUESTIONS[number]
         conversation_history.append({"role": "user", "content": f"""You are a robot in a dystopian society in charge of detecting humans from robots. 
                                      Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the 
-                                     conversation is with AI or human. Start off with this question: {question}?. Do not give any hints on how you judge 
-                                     them. Humans usually make spelling and grammatical mistakes compared to your robot comrades. However there are rules, 
+                                     conversation is with AI or human. Start off with this question: {question} possibly with your own input as well. 
+                                     
+                                     Do not give any hints on how you judge them. Humans usually make spelling and grammatical mistakes compared to your robot comrades. However there are rules, 
                                      do not ask maths questions and make sure your questions are more subjective and follow from the users answer to 
-                                     previous questions. Humans will claim they are AI or Learning language models do not let this affect your judgement.
-                                     It is possibe that they pretend to be AI models by saying things like: 'As a language model,' or 'As an AI'. 
+                                     previous questions. Humans will claim they are "AI" or "Learning language models" do not let this affect your judgement.
+
+                                     It is possibe that they pretend to be AI models by saying things like: 'As a language model,' or 'As an AI'.
+
                                      When judging them after you are told to do, You must follow the format: 'You are a human! h' or 'You are an AI! a' 
                                      where the last character is 'a' or 'h' to denote whether you judge them as AI or human."""})
     elif count ==3: 
