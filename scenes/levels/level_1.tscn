@@ -30,7 +30,6 @@ rot_speed = 2.0
 path = Array[Vector2]([Vector2(142, 166), Vector2(990, 166), Vector2(990, 480), Vector2(560, 480)])
 view_dist = 500.0
 fov = 0.75
-difficulty = null
 
 [node name="Wall6" parent="." index="6" instance=ExtResource("1_kda31")]
 position = Vector2(1000, 325)
