@@ -1,61 +1,62 @@
 from flask import Flask, request, jsonify
-import requests
-import json
+from mistralai import Mistral
+import os
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 app = Flask(__name__)
 
+api_key = os.environ["MY_API_KEY"]
+model = "mistral-large-latest"
 
-ARLIAI_API_KEY = "dec15259-a611-485c-871f-e2ee49a280da"
+client = Mistral(api_key=api_key)
 
-def prompt(data: dict):
-    url = "https://api.arliai.com/v1/chat/completions"
-    if not isinstance(data, dict):
-        raise TypeError("Expected 'data' to be a dictionary")
+def prompt(data, count):
+    global conversation_history 
+    """
+    Argument: Takes in a prompt string
+
+    Returns: returns the output of the prompted string
+
+    Purpose: To take a prompt string, pass it to an AI via API and return the response
+    """
+    # reset chat history
+    if count == 0:
+        # resets conversation history
+        conversation_history = []
+        conversation_history.append({"role": "user", "content": "You are a robot in a dystopian society in charge of detecting humans from robots. Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the conversation is with AI or human. Do not give any hints on how you judge them. Humans usually make spelling and grammatical mistakes compared to your robot comrades and they will also try to trick you by attempting to answer like a robot. Just think about you would respond to your questions and if they respond differently, it is most likely a human"})
+    elif count ==3: 
+        conversation_history.append({"role": "user", "content": "This is your last question "+data + "Based on previous conversations, create a response." })
     else: 
-        payload = json.dumps({
-        "model": "Mistral-Nemo-12B-Instruct-2407",
-        "messages": [
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": "Hello!"},
-            {"role": "assistant", "content": "Hi!, how can I help you today?"},
-            {"role": "user", "content": "Say hello!"}
-        ],
-        "repetition_penalty": 1.1,
-        "temperature": 0.7,
-        "top_p": 0.9,
-        "top_k": 40,
-        "max_tokens": 1024,
-        "stream": True
-        })
-        headers = {
-        'Content-Type': 'application/json',
-        'Authorization': f"Bearer {ARLIAI_API_KEY}"
-        }
-
-    response = requests.request("POST", url, headers=headers, data=payload)
-    # Extract and return the reply from the assistant
-    if response.status_code == 200:
-        return response.headers.get('Content-Type')
-    else: 
-        return "failed"
-
+        conversation_history.append({"role": "user", "content": data + "Based on the previous conversations, create a response."})
+    chat_response = client.chat.complete(
+            model = model,
+            messages =  conversation_history
+        )
+    assistant_response = chat_response.choices[0].message.content
+    conversation_history.append({"role": "assistant", "content": assistant_response})
+    
+    return assistant_response
 
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    return jsonify("template")
+    print("I am getting")
+    response = prompt("You are in a dystopian society in chage of detecting humans, one human has escaped from prison and you may be talking to him right now. Ask your first question to start of a conversation to find out if he/she is human, do not provide hints.", 0)
+    print(response)
+    return jsonify({"response": response})
 
 @app.route('/api/data', methods=['POST'])
 def post_data():
-    print("got request")
     data = request.json
     if data:
+        print("recived")
         # You can process the data here as needed
-        print(prompt(data))
+        response = prompt(data["prompt"], data["count"])
+        print(response)
         
-        return jsonify({"received": data}), 201  # Respond with the received data
+        return jsonify({"response": response}), 201  # Respond with the received data
     return jsonify({"error": "Invalid data"}), 400  # Bad request if data is not valid
 
 if __name__ == '__main__':
