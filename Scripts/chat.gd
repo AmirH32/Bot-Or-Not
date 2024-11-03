@@ -23,6 +23,8 @@ func _ready() -> void:
 	text_edit.anchor_right = 1
 	text_edit.anchor_bottom = 1
 	http_request_node.get_first_question()
+	prompt_count += 1
+	print("Number of prompts sent:", prompt_count)
 	
 	
 # Function called when the Send button is pressed
@@ -52,12 +54,9 @@ func _on_send_pressed():
 		# Reset the count every 3 prompts
 		if prompt_count >= 4:
 			# AI makes its decision
-			post_data = create_post_data("You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision, make a concise decision and send it (your answer must include if you think they are a human or a robot)",prompt_count)
+			post_data = create_post_data("You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision (your answer must follow the format 'You are a human! h' or 'You are an AI! a' where the last character is 'a' or 'h' to denote whether you judge them as AI or human",prompt_count)
 			
 			http_request_node.send_post_request(post_data)
-			
-			prompt_count = 0
-			print("Prompt count has been reset.")
 			
 		###
 		
@@ -67,9 +66,22 @@ func _on_send_pressed():
 	else:
 		print("One or more nodes not found! Check the path.")
 
+func reset_prompt_count():
+	prompt_count = 0
+	print("Prompt count has been reset.")
+
 func display_ai_response(response):
 	var type_of_variable = typeof(response)
 
 	if type_of_variable == TYPE_DICTIONARY:
-		text_edit.text += "Bot:" + response["response"] + "\n"
+		var response_string = response["response"]
+		var response_length = response_string.length()
+		
+		text_edit.text += "Bot:" + response_string.substr(0, response_length - 1) + "\n"
+		if prompt_count == 5:
+			reset_prompt_count()
+			if response_string[response_length - 1] == "h" or "human" in response_string:
+				text_edit.text += "The bot has detected you are human, you lose!"
+			else:
+				text_edit.text += "The bot has detected you are an AI, you win!"
 	
