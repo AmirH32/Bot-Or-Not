@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 # Constants
-const ACCELERATION = 800.0  # How quickly the player speeds up
+const ACCELERATION = 1000.0  # How quickly the player speeds up
 const MAX_SPEED = 300.0     # Maximum speed of the player
-const FRICTION = 500.0      # How quickly the player slows down when no input
+const FRICTION = 1000.0      # How quickly the player slows down when no input
 
 # _physics_process is called every frame with the delta time
 func _physics_process(delta: float) -> void:
