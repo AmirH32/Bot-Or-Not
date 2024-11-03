@@ -10,7 +10,7 @@ var prompt_count: int = 0 # initialise prompt count
 var parent_ai : AI_robot # The parent AI node
 @onready var result_button = $ResultButton  # Adjust the path as necessary
 var win # variable that holds if you have won or not
-
+var difficulty : int
 
 signal death # signals death
 signal increment # signals increment
