@@ -49,13 +49,15 @@ def prompt(data, count, QUESTIONS):
     """
     # reset chat history
     if count == 0:
-        # resets conversation history
         conversation_history = []
         number = random.randint(0, len(QUESTIONS)-1)
         question = QUESTIONS[number]
+        return question
+    elif count == 1:
+        # resets conversation history
         conversation_history.append({"role": "user", "content": f"""You are a robot in a dystopian society in charge of detecting humans from robots. 
                                      Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the 
-                                     conversation is with AI or human. Start off with this question: {question} possibly with your own input as well. 
+                                     conversation is with AI or human. Use the conversation history why responding!
                                      
                                      Do not give any hints on how you judge them. Humans usually make spelling and grammatical mistakes compared to your robot comrades. However there are rules, 
                                      do not ask maths questions and make sure your questions are more subjective and follow from the users answer to 
