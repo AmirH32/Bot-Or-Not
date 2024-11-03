@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 api_key = os.environ["MY_API_KEY"]
 # default bot (mistral-large-latest)
-model = "open-mistral-7b"
+model = "mistral-large-latest"
 QUESTIONS = questions = [
     "What is your favorite memory?",
     "Can you tell me a joke?",
