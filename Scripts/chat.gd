@@ -54,7 +54,7 @@ func _on_send_pressed():
 		# Reset the count every 3 prompts
 		if prompt_count >= 4:
 			# AI makes its decision
-			post_data = create_post_data("You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision, make a concise decision and send it (your answer must follow the format 'You are a human! h' or 'You are an AI! a' where the last character is 'a' or 'h' to denote whether you judge them as AI or human",prompt_count)
+			post_data = create_post_data("You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision (your answer must follow the format 'You are a human! h' or 'You are an AI! a' where the last character is 'a' or 'h' to denote whether you judge them as AI or human",prompt_count)
 			
 			http_request_node.send_post_request(post_data)
 			
@@ -80,7 +80,7 @@ func display_ai_response(response):
 		text_edit.text += "Bot:" + response_string.substr(0, response_length - 1) + "\n"
 		if prompt_count == 5:
 			reset_prompt_count()
-			if response_string[response_length - 1] == "h":
+			if response_string[response_length - 1] == "h" or "human" in response_string:
 				text_edit.text += "The bot has detected you are human, you lose!"
 			else:
 				text_edit.text += "The bot has detected you are an AI, you win!"
