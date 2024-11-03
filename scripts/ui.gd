@@ -50,3 +50,9 @@ func _on_level_select_pressed():
 	$WinScreen.hide()
 	$DeathScreen.hide()
 	$LevelSelect.show()
+
+func win():
+	$WinScreen.show()
+
+func die():
+	$DeathScreen.show()
