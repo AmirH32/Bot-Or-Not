@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_k5bm0"]
 
 [sub_resource type="SystemFont" id="SystemFont_v5jlp"]
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_lx67s"]
 default_font = SubResource("SystemFont_v5jlp")
@@ -144,7 +145,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -152,11 +153,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="GridContainer"]
+[node name="Title" type="Label" parent="LevelSelect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
 text = "Select Level
 "
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LevelSelect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="GamemodeSelect/Survival" to="." method="_on_survival_pressed"]
