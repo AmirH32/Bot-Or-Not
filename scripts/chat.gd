@@ -22,6 +22,11 @@ func create_post_data(prompt, prompt_count):
 	}
 	return post_data
 	
+# Function to handle input events
+func _input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ENTER:
+		_on_send_pressed()  # Call the send function
+
 # On startup get the first question from AI
 func _ready() -> void:
 	 # Set the TextEdit to full screen size
@@ -83,6 +88,7 @@ func _on_send_pressed():
 		answer_input.text = ""
 	else:
 		print("One or more nodes not found! Check the path.")
+	answer_input.grab_focus()
 
 func reset_prompt_count():
 	### Purpose: Reset the prompt counter
