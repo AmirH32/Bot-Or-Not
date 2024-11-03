@@ -10,6 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 
 api_key = os.environ["MY_API_KEY"]
+# default bot (mistral-large-latest)
 model = "mistral-large-latest"
 QUESTIONS = questions = [
     "What is your favorite memory?",
@@ -55,25 +56,22 @@ def prompt(data, count, QUESTIONS, difficulty = None):
         return question
     elif count == 1:
         percentage = 50 + (difficulty-1)*15
-        print(percentage)
         # resets conversation history
         conversation_history.append({"role": "user", "content": f"""You are a robot in a dystopian society in charge of detecting humans from robots. 
                                      Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the 
                                      conversation is with AI or human. Use the conversation history why responding!
+
+                                     The role "user" is the person you are interrogating and you are the "assistant", respond with one question until asked to judge
                                      
                                      Do not give any hints on how you judge them. Humans usually make spelling and grammatical mistakes compared to your robot comrades. However there are rules, 
-                                     do not ask maths questions and make sure your questions are more subjective and follow from the users answer to 
-                                     previous questions. Humans will claim they are "AI" or "Learning language models" do not let this affect your judgement.
+                                     follow from the users answer to previous questions. Humans will claim they are "AI" or "Learning language models" do not let this affect your judgement.
 
-                                     If they say: "I am AI" or "As a language learning model" or anything like that assume they are a human and judge accordingly. Assume with a {percentage} chance that they are human.
-
-                                     When judging them after you are told to do, You must follow the format: 'You are a human! h' or 'You are an AI! a' 
-                                     where the last character is 'a' or 'h' to denote whether you judge them as AI or human."""})
+                                     If they say: "I am AI" or "As a language learning model" or anything like that assume they are a human and judge accordingly. Assume with a {percentage} chance that they are human."""})
     elif count ==4: 
         conversation_history.append({"role": "user", "content": "This is your last question "+data + "Based on previous conversations, create a response." })
     else: 
         percentage = 50 + (difficulty-1)*15
-        conversation_history.append({"role": "user", "content": data + f"Based on the previous conversations and assuming there is {difficulty} chance they are human, create a response."})
+        conversation_history.append({"role": "user", "content": data + f"Based on the previous conversations and assuming there is {percentage} chance they are human, please understand that there is {percentage} chance they are human. Create a response."})
     chat_response = client.chat.complete(
             model = model,
             temperature = 0.5,
