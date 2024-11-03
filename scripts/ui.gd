@@ -53,7 +53,9 @@ func _on_level_select_pressed():
 	$LevelSelect.show()
 
 func win():
+	$WinScreen/NumBamboozled.text = str(Globals.num_bamboozled)
 	$WinScreen.show()
 
 func die():
+	$DeathScreen/NumBamboozled.text = str(Globals.num_bamboozled)
 	$DeathScreen.show()
