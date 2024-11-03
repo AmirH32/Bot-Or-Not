@@ -3,7 +3,7 @@ from mistralai import Mistral
 import os
 from dotenv import load_dotenv
 import random
-
+import requests
 
 load_dotenv()
 
@@ -12,6 +12,7 @@ app = Flask(__name__)
 api_key = os.environ["MY_API_KEY"]
 # default bot (mistral-large-latest)
 model = "mistral-large-latest"
+key = "GI6FOF1DRZWKAIMJWHAJP11VLOVUY1QD"
 
 # Constant containing a random list of questions to start off with
 QUESTIONS = questions = [
@@ -51,6 +52,7 @@ def prompt(data, count, QUESTIONS, difficulty = None):
     Purpose: To take a prompt string, pass it to an AI via API and return the response
     """
     # reset chat history
+    print(count)
     if count == 0:
         conversation_history = []
         number = random.randint(0, len(QUESTIONS)-1)
@@ -59,7 +61,6 @@ def prompt(data, count, QUESTIONS, difficulty = None):
         return question
     elif count == 1:
         percentage = 50 + (difficulty-1)*15
-        # resets conversation history
         conversation_history.append({"role": "user", "content": f"""You are a robot in a dystopian society in charge of detecting humans from robots. 
                                      Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the 
                                      conversation is with AI or human. Use the conversation history why responding!
@@ -75,6 +76,22 @@ def prompt(data, count, QUESTIONS, difficulty = None):
                                      If they say: "I am AI" or "As a language learning model" or anything like that assume they are a human and judge accordingly. Assume with a {percentage} chance that they are human."""})
     elif count ==4: 
         conversation_history.append({"role": "user", "content": "This is your last question "+data + "Based on previous conversations, create a response." })
+    elif count == 5:
+        sentence = "==========================================="
+        for x in conversation_history:
+            if x["role"] == "user":
+                sentence += " " + x["content"]
+        response = requests.post(
+            "https://api.sapling.ai/api/v1/aidetect",
+            json={
+                "key": key,
+                "text": sentence
+        })
+        print(response)
+        response = response.json()
+        response = {"response":response["score"]}
+        print(response)
+        return response
     else: 
         percentage = 50 + (difficulty-1)*15
         conversation_history.append({"role": "user", "content": data + f"Based on the previous conversations and assuming there is {percentage} chance they are human, please understand that there is {percentage} chance they are human. Create a response."})
@@ -104,7 +121,6 @@ def post_data():
         print("recived")
         # You can process the data here as needed
         response = prompt(data["prompt"], data["count"], QUESTIONS, data["difficulty"])
-        print(response)
         
         return jsonify({"response": response}), 201  # Respond with the received data
     return jsonify({"error": "Invalid data"}), 400  # Bad request if data is not valid
