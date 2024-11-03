@@ -7,6 +7,9 @@ extends Node
 @onready var http_request_node = $HTTPRequest # The HTTP Request node
 var prompt_count: int = 0 # initialise prompt count
 
+signal death
+signal increment
+
 func create_post_data(prompt, prompt_count):
 	var post_data = {
 			"prompt": prompt,
@@ -82,6 +85,7 @@ func display_ai_response(response):
 			reset_prompt_count()
 			if response_string[response_length - 1] == "h" or "human" in response_string:
 				text_edit.text += "The bot has detected you are human, you lose!"
+				emit_signal("death")
 			else:
 				text_edit.text += "The bot has detected you are an AI, you win!"
-	
+				emit_signal("increment")
