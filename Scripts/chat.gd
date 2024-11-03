@@ -88,9 +88,9 @@ func display_ai_response(response):
 			reset_prompt_count()
 			if response_string[response_length - 1] == "h" or "human" in response_string:
 				text_edit.text += "The bot has detected you are human, you lose!"
-				emit_signal("death")
 				parent_ai.resume(true)
+				Globals.on_death()
 			else:
 				text_edit.text += "The bot has detected you are an AI, you win!"
-				emit_signal("increment")
 				parent_ai.resume(false)
+				Globals.on_bamboozle()
