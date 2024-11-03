@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://scripts/ai_movement.gd" id="1_vih7l"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_buids"]
-size = Vector2(64, 64)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c2y5x"]
 size = Vector2(32, 32)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c2y5x"]
+size = Vector2(16, 16)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_xwt0g"]
-radius = 50.0
+radius = 32.0
 
 [node name="AI" type="Node2D" node_paths=PackedStringArray("nav", "human_detector", "human_detector_poly")]
 script = ExtResource("1_vih7l")
@@ -17,14 +17,15 @@ nav = NodePath("AI_navigation")
 rot_speed = 3.0
 speed = 400.0
 angle_tolerance = 0.2
-path = Array[Vector2]([Vector2(-500, 0), Vector2(-500, 250), Vector2(500, -100), Vector2(0, 0)])
+path = Array[Vector2]([Vector2(0, 0)])
 human_detector = NodePath("human_detector")
-fov = 1.543
+view_dist = 250.0
+fov = 0.5
 human_detector_poly = NodePath("human_detector/CollisionPolygon2D")
 
 [node name="AI_navigation" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
-radius = 100.0
+path_desired_distance = 5.0
+target_desired_distance = 5.0
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
@@ -32,7 +33,7 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 texture = SubResource("PlaceholderTexture2D_buids")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(32, 0)
+position = Vector2(16, 0)
 texture = SubResource("PlaceholderTexture2D_c2y5x")
 
 [node name="human_detector" type="Area2D" parent="."]
@@ -41,7 +42,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="human_detector"]
-polygon = PackedVector2Array(0, 0, 500, 250, 500, -250)
+polygon = PackedVector2Array(0, 0, 250, -136.576, 250, 136.576)
 
 [node name="human_collider" type="Area2D" parent="."]
 collision_layer = 4
