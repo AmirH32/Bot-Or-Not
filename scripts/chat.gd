@@ -80,8 +80,6 @@ func _on_send_pressed():
 			post_data = create_post_data("You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision (your answer must follow the format 'You are a human! h' or 'You are an AI! a' where the last character is 'a' or 'h' to denote whether you judge them as AI or human",prompt_count)
 			# Sends post request to judge the player
 			http_request_node.send_post_request(post_data)
-			
-			prompt_count += 1
 		###
 		
 		
