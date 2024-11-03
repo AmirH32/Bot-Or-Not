@@ -87,10 +87,9 @@ def prompt(data, count, QUESTIONS, difficulty = None):
                 "key": key,
                 "text": sentence
         })
-        print(response)
         response = response.json()
+        print(response["score"])
         response = {"response":response["score"]}
-        print(response)
         return response
     else: 
         percentage = 50 + (difficulty-1)*15

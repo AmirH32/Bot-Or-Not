@@ -100,17 +100,25 @@ func display_ai_response(response):
 	if type_of_variable == TYPE_DICTIONARY:
 		# if the type of response is dictionary gets the allocated response from the chat bot
 		var response_string = response["response"]
-		var response_length = response_string.length()
+		var type_of_response = typeof(response_string)
+		### remove this if you go to normal backend version
+		if type_of_response == TYPE_DICTIONARY:
+			response_string = response_string["response"]
+		###
 		
 		# Adds bot response
-		text_edit.text += "Bot:" + response_string + "\n"
+		### If you want to work with normal version remove this type of checker and unindent its body 
+		if typeof(response_string) == TYPE_STRING:
+		###
+			text_edit.text += "Bot:" + response_string + "\n"
 		
 		# If we have 6 prompts then look at bot response as to whether we are human or AI
 		if prompt_count == 6:
 			reset_prompt_count()
 			print(prompt_count, response_string)
-			if response_string[response_length - 1] == "h" or "human" in response_string:
-			#if float (response_string) <= 0.5:
+			### add commented out lines to turn it back to normal
+			#if response_string[response_length - 1] == "h" or "human" in response_string:
+			if float (response_string) <= 0.5:
 				text_edit.text += "The bot has detected you are human, you lose!"
 				emit_signal("death")
 				result_button.visible = true  # Make the button visible
