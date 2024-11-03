@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://ddkejqm5vlela"]
-
-[node name="HTTPRequest" type="HTTPRequest"]
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(101, 33)
