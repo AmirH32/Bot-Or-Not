@@ -37,8 +37,7 @@ Ensure you have Python installed on your system. This project uses Python 3.6 or
 2. **Install Required Packages**
 
 Use pip to install the necessary libraries:
-```pip install Flask python-dotenv mistralai
-```
+```pip install Flask python-dotenv mistralai```
 3. **Set Up Environment Variables:**
 
 Create a `.env` file in the root of your project directory and add your API key:
