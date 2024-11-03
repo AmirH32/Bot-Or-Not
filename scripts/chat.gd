@@ -106,8 +106,9 @@ func display_ai_response(response):
 		text_edit.text += "Bot:" + response_string + "\n"
 		
 		# If we have 6 prompts then look at bot response as to whether we are human or AI
-		if prompt_count == 5:
+		if prompt_count == 6:
 			reset_prompt_count()
+			print(prompt_count, response_string)
 			if response_string[response_length - 1] == "h" or "human" in response_string:
 			#if float (response_string) <= 0.5:
 				text_edit.text += "The bot has detected you are human, you lose!"
