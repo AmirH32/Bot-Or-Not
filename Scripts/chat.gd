@@ -8,6 +8,9 @@ extends Node2D
 @onready var http_request_node = $HTTPRequest # The HTTP Request node
 var prompt_count: int = 0 # initialise prompt count
 var parent_ai : AI_robot
+@onready var result_button = $ResultButton  # Adjust the path as necessary
+var win
+
 
 signal death
 signal increment
@@ -22,7 +25,8 @@ func create_post_data(prompt, prompt_count):
 # On startup get the first question from AI
 func _ready() -> void:
 	 # Set the TextEdit to full screen size
-	print(get_viewport().size)
+	win = null
+	result_button.visible = false 
 	
 	text_edit.anchor_left = 0
 	text_edit.anchor_top = 0
@@ -89,8 +93,17 @@ func display_ai_response(response):
 			if response_string[response_length - 1] == "h" or "human" in response_string:
 				text_edit.text += "The bot has detected you are human, you lose!"
 				emit_signal("death")
-				parent_ai.resume(true)
+				result_button.visible = true  # Make the button visible
+				win = false
 			else:
 				text_edit.text += "The bot has detected you are an AI, you win!"
 				emit_signal("increment")
-				parent_ai.resume(false)
+				win = true
+				result_button.visible = true  # Make the button visible
+
+func resume_ai():
+	if win == false:
+		parent_ai.resume(true)
+	else:
+		parent_ai.resume(false)
+		
