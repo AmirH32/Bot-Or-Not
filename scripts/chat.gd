@@ -51,8 +51,6 @@ func _ready() -> void:
 	
 # Function called when the Send button is pressed
 func _on_send_pressed():
-	# Confirm the button is triggering this function
-	print("Button pressed - Sending input text")
 	
 	# Verify if the text_edit and answer_input nodes are accessible
 	if text_edit and answer_input:
