@@ -12,6 +12,7 @@ source_geometry_mode = 1
 agent_radius = 30.0
 
 [node name="Level1" type="Node2D"]
+process_mode = 1
 
 [node name="WinArea" parent="." instance=ExtResource("3_v63lc")]
 position = Vector2(79, 325)

@@ -13,6 +13,9 @@ agent_radius = 30.0
 
 [node name="Level1" instance=ExtResource("1_e3uxy")]
 
+[node name="WinArea" parent="." index="0"]
+position = Vector2(78, 168)
+
 [node name="Wall5" parent="." index="4" instance=ExtResource("1_kda31")]
 position = Vector2(355, 325)
 scale = Vector2(680, 60)
