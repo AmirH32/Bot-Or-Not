@@ -12,5 +12,12 @@ func _process(delta):
 
 
 func start_game(level_name: String):
-	add_child(load("res://scenes/levels/"+level_name+".tscn").instantiate())
+	var level: Node2D = load("res://scenes/levels/"+level_name+".tscn").instantiate()
+	var win_area: WinArea = level.get_node("WinArea")
+	win_area.win.connect(win)
+	add_child(level)
 	#$UI.hide()
+
+
+func win(num_bamboozled: int):
+	print(num_bamboozled)
