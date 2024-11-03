@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 api_key = os.environ["MY_API_KEY"]
 # default bot (mistral-large-latest)
-model = "mistral-large-latest"
+model = "open-mistral-7b"
 QUESTIONS = questions = [
     "What is your favorite memory?",
     "Can you tell me a joke?",
@@ -53,6 +53,7 @@ def prompt(data, count, QUESTIONS, difficulty = None):
         conversation_history = []
         number = random.randint(0, len(QUESTIONS)-1)
         question = QUESTIONS[number]
+        conversation_history.append(question)
         return question
     elif count == 1:
         percentage = 50 + (difficulty-1)*15
