@@ -46,15 +46,18 @@ Ensure you have Python installed on your system. This project uses Python 3.6 or
    ```
 
 4. **Download and install Godot4**
+   
    Download and install godot 4 from:
    https://godotengine.org/download/windows/ (for windows)
    https://godotengine.org/download/linux/ (for linux)
 
-5. **Open the project in Godot4**
+6. **Open the project in Godot4**
+   
    Use Godot4 to open the project and run it using the play button on the top right
 
 
-7. **Run the Backend:**
+8. **Run the Backend:**
+   
    ```
    python backend.py
    python3 backend.py
@@ -68,6 +71,7 @@ Ensure you have Python installed on your system. This project uses Python 3.6 or
    Complete Objectives: Your main goal is to complete the game objectives without being detected.
 
 ## Feature Requests
+
    Have an idea for a new feature? We’d love to hear it! Please submit a feature request with a clear description of what you’d like to see.
 
 ## Contributing
