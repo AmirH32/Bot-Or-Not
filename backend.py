@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 import random
 
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -46,7 +47,6 @@ def prompt(data, count, QUESTIONS):
 
     Purpose: To take a prompt string, pass it to an AI via API and return the response
     """
-    print(count, data)
     # reset chat history
     if count == 0:
         # resets conversation history
@@ -90,6 +90,8 @@ def get_data():
 @app.route('/api/data', methods=['POST'])
 def post_data():
     data = request.json
+    if "prompt" not in data or "count" not in data:
+        return jsonify({"error": "Missing required fields"}), 400
     if data:
         print("recived")
         # You can process the data here as needed
