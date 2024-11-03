@@ -4,3 +4,6 @@
 
 # VSCode specific ignores
 .vscode/
+
+# Why is this here
+.fuse_hidden*
