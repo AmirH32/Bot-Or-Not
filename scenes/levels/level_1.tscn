@@ -12,6 +12,7 @@ source_geometry_mode = 1
 agent_radius = 30.0
 
 [node name="Level1" instance=ExtResource("1_e3uxy")]
+z_index = 10
 
 [node name="NavigationRegion2D" parent="." index="0"]
 navigation_polygon = SubResource("NavigationPolygon_nljkw")

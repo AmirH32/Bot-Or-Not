@@ -1,4 +1,5 @@
-extends Node
+class_name Chat
+extends Node2D
 
 
 # Reference the TextEdit and Answer (input field) nodes
@@ -6,6 +7,7 @@ extends Node
 @onready var answer_input = $AnswerEdit      # Input field (e.g., LineEdit or another TextEdit)
 @onready var http_request_node = $HTTPRequest # The HTTP Request node
 var prompt_count: int = 0 # initialise prompt count
+var parent_ai : AI_robot
 
 func create_post_data(prompt, prompt_count):
 	var post_data = {
@@ -18,6 +20,7 @@ func create_post_data(prompt, prompt_count):
 func _ready() -> void:
 	 # Set the TextEdit to full screen size
 	print(get_viewport().size)
+	
 	text_edit.anchor_left = 0
 	text_edit.anchor_top = 0
 	text_edit.anchor_right = 1
