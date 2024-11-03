@@ -76,4 +76,4 @@ func _on_human_collider_body_entered(body: Node2D) -> void:
 func resume(died: bool):
 	get_tree().paused=false
 	cam.enabled=true
-	remove_child(chat)
+	remove_child(get_node("Chat"))

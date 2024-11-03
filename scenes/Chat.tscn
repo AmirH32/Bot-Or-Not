@@ -4,7 +4,9 @@
 [ext_resource type="Script" path="res://scripts/http_request.gd" id="2_tkvc6"]
 
 [node name="Chat" type="Node2D"]
+process_mode = 3
 z_index = 10
+position = Vector2(-1, 0)
 script = ExtResource("1_5lp2x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -37,5 +39,7 @@ offset_top = 409.0
 offset_right = 549.0
 offset_bottom = 473.0
 wrap_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="Send" to="." method="_on_send_pressed"]
