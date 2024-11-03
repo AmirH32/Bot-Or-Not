@@ -55,6 +55,7 @@ def prompt(data, count, QUESTIONS, difficulty = None):
         return question
     elif count == 1:
         percentage = 50 + (difficulty-1)*15
+        print(percentage)
         # resets conversation history
         conversation_history.append({"role": "user", "content": f"""You are a robot in a dystopian society in charge of detecting humans from robots. 
                                      Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the 
@@ -64,7 +65,7 @@ def prompt(data, count, QUESTIONS, difficulty = None):
                                      do not ask maths questions and make sure your questions are more subjective and follow from the users answer to 
                                      previous questions. Humans will claim they are "AI" or "Learning language models" do not let this affect your judgement.
 
-                                     It is possibe that they pretend to be AI models by saying things like: 'As a language model,' or 'As an AI'. Assume with a {percentage} chance that they are human.
+                                     If they say: "I am AI" or "As a language learning model" or anything like that assume they are a human and judge accordingly. Assume with a {percentage} chance that they are human.
 
                                      When judging them after you are told to do, You must follow the format: 'You are a human! h' or 'You are an AI! a' 
                                      where the last character is 'a' or 'h' to denote whether you judge them as AI or human."""})
@@ -88,7 +89,6 @@ def prompt(data, count, QUESTIONS, difficulty = None):
 def get_data():
     print("I am getting")
     response = prompt("You are in a dystopian society in chage of detecting humans, one human has escaped from prison and you may be talking to him right now. Ask your first question to start of a conversation to find out if he/she is human, do not provide hints.", 0, QUESTIONS)
-    print(response)
     return jsonify({"response": response})
 
 @app.route('/api/data', methods=['POST'])
