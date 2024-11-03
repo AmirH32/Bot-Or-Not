@@ -118,7 +118,7 @@ func display_ai_response(response):
 func resume_ai():
 	if win == false:
 		parent_ai.resume(true)
-	Globals.on_death()
+		Globals.on_death()
 	else:
 		parent_ai.resume(false)
-	Globals.on_bamboozle()
+		Globals.on_bamboozle()
