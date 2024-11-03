@@ -8,26 +8,26 @@ script = ExtResource("1_5lp2x")
 
 [node name="Send" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 40)
-offset_left = 603.0
-offset_top = 30.0
-offset_right = 773.0
-offset_bottom = 94.0
+offset_left = 873.0
+offset_top = 220.0
+offset_right = 1156.0
+offset_bottom = 308.0
 text = "SEND"
 
 [node name="Answer" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(300, 50)
-offset_left = -374.0
-offset_top = 30.0
-offset_right = 602.0
-offset_bottom = 94.0
+offset_left = -760.0
+offset_top = 220.0
+offset_right = 872.0
+offset_bottom = 310.0
 placeholder_text = "Answer"
 
 [node name="TextEdit" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(400, 500)
-offset_left = -376.0
-offset_top = -554.0
-offset_right = 773.0
-offset_bottom = 23.0
+offset_left = -758.0
+offset_top = -770.0
+offset_right = 1156.0
+offset_bottom = 211.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
