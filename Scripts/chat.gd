@@ -16,6 +16,12 @@ func create_post_data(prompt, prompt_count):
 	
 # On startup get the first question from AI
 func _ready() -> void:
+	 # Set the TextEdit to full screen size
+	print(get_viewport().size)
+	text_edit.anchor_left = 0
+	text_edit.anchor_top = 0
+	text_edit.anchor_right = 1
+	text_edit.anchor_bottom = 1
 	http_request_node.get_first_question()
 	
 	
