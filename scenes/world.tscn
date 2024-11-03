@@ -25,4 +25,21 @@ color = Color(0.513233, 0.513233, 0.513233, 1)
 
 [node name="UI" parent="." instance=ExtResource("2_k0v44")]
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -391.0
+offset_right = 520.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 56
+text = "Use WASD or arrow keys to move
+Avoid the evil AI!
+If you get caught, try to make the AI think you are also an AI"
+threaded = true
+
 [connection signal="open_level" from="UI" to="." method="start_game"]
