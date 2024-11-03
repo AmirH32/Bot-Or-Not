@@ -101,16 +101,15 @@ func display_ai_response(response):
 		# if the type of response is dictionary gets the allocated response from the chat bot
 		var response_string = response["response"]
 		var response_length = response_string.length()
-		print(response_string)
 		
 		# Adds bot response
 		text_edit.text += "Bot:" + response_string + "\n"
 		
 		# If we have 6 prompts then look at bot response as to whether we are human or AI
-		if prompt_count == 6:
+		if prompt_count == 5:
 			reset_prompt_count()
-			# if response_string[response_length - 1] == "h" or "human" in response_string:
-			if float (response_string) <= 0.5:
+			if response_string[response_length - 1] == "h" or "human" in response_string:
+			#if float (response_string) <= 0.5:
 				text_edit.text += "The bot has detected you are human, you lose!"
 				emit_signal("death")
 				result_button.visible = true  # Make the button visible
