@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/http_request.gd" id="2_tkvc6"]
 
 [node name="Chat" type="Node2D"]
+process_mode = 3
 z_index = 10
 script = ExtResource("1_5lp2x")
 
