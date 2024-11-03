@@ -68,6 +68,7 @@ def prompt(data, count, QUESTIONS):
         conversation_history.append({"role": "user", "content": data + "Based on the previous conversations, create a response."})
     chat_response = client.chat.complete(
             model = model,
+            temperature = 0.5,
             messages =  conversation_history
         )
     assistant_response = chat_response.choices[0].message.content
