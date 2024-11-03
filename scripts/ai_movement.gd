@@ -61,6 +61,7 @@ func _on_ai_navigation_navigation_finished() -> void:
 
 
 func _on_human_collider_body_entered(body: Node2D) -> void:
+	if !hostile: return
 	cam = get_viewport().get_camera_2d()
 	cam.enabled=false
 	get_tree().paused=true
