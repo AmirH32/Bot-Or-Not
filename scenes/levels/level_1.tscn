@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d25yhcbdyfrht"]
+
+[ext_resource type="PackedScene" uid="uid://wll16wcgdkh1" path="res://scenes/levels/level_template.tscn" id="1_d1l76"]
+[ext_resource type="PackedScene" uid="uid://cvpihc0gxcjfm" path="res://scenes/wall.tscn" id="2_gq7ck"]
+
+[node name="Level1" instance=ExtResource("1_d1l76")]
+
+[node name="WinArea" parent="." index="0"]
+position = Vector2(1016, 114)
+scale = Vector2(4, 4)
+
+[node name="Wall5" parent="." index="5" instance=ExtResource("2_gq7ck")]
+position = Vector2(664, 334)
+rotation = -0.558505
+scale = Vector2(1152, 50)
+
+[node name="Player" parent="." index="6"]
+position = Vector2(485, 288)
