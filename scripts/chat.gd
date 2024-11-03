@@ -15,10 +15,11 @@ var difficulty : int
 signal death # signals death
 signal increment # signals increment
 
-func create_post_data(prompt, prompt_count):
+func create_post_data(prompt, prompt_count, difficulty):
 	var post_data = {
 			"prompt": prompt, # prompt for AI
-			"count": prompt_count  # You can increment this counter if needed
+			"count": prompt_count,  # You can increment this counter if needed
+			"difficulty": difficulty
 	}
 	return post_data
 	
@@ -66,7 +67,7 @@ func _on_send_pressed():
 		
 		### Handles POST and incrementing counter
 		# Creates the post json 
-		var post_data = create_post_data(user_input, prompt_count)
+		var post_data = create_post_data(user_input, prompt_count, difficulty)
 		
 		# sends a http request
 		http_request_node.send_post_request(post_data)
@@ -77,7 +78,7 @@ func _on_send_pressed():
 		# Reset the count every 5 prompts
 		if prompt_count >= 5:
 			# AI makes its decision
-			post_data = create_post_data("You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision (your answer must follow the format 'You are a human! h' or 'You are an AI! a' where the last character is 'a' or 'h' to denote whether you judge them as AI or human",prompt_count)
+			post_data = create_post_data("You must now judge whether the person you have talked to is a human or a robot, your life depends on this decision (your answer must follow the format 'You are a human! h' or 'You are an AI! a' where the last character is 'a' or 'h' to denote whether you judge them as AI or human",prompt_count, difficulty)
 			# Sends post request to judge the player
 			http_request_node.send_post_request(post_data)
 		###

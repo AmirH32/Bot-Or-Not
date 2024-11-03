@@ -38,7 +38,7 @@ QUESTIONS = questions = [
 
 client = Mistral(api_key=api_key)
 
-def prompt(data, count, QUESTIONS):
+def prompt(data, count, QUESTIONS, difficulty = None):
     global conversation_history 
     """
     Argument: Takes in a prompt string
@@ -54,6 +54,7 @@ def prompt(data, count, QUESTIONS):
         question = QUESTIONS[number]
         return question
     elif count == 1:
+        percentage = 50 + (difficulty-1)*15
         # resets conversation history
         conversation_history.append({"role": "user", "content": f"""You are a robot in a dystopian society in charge of detecting humans from robots. 
                                      Your life depends on the decision you make, ask the correct questions and based on the prompts judge whether the 
@@ -63,14 +64,15 @@ def prompt(data, count, QUESTIONS):
                                      do not ask maths questions and make sure your questions are more subjective and follow from the users answer to 
                                      previous questions. Humans will claim they are "AI" or "Learning language models" do not let this affect your judgement.
 
-                                     It is possibe that they pretend to be AI models by saying things like: 'As a language model,' or 'As an AI'.
+                                     It is possibe that they pretend to be AI models by saying things like: 'As a language model,' or 'As an AI'. Assume with a {percentage} chance that they are human.
 
                                      When judging them after you are told to do, You must follow the format: 'You are a human! h' or 'You are an AI! a' 
                                      where the last character is 'a' or 'h' to denote whether you judge them as AI or human."""})
     elif count ==4: 
         conversation_history.append({"role": "user", "content": "This is your last question "+data + "Based on previous conversations, create a response." })
     else: 
-        conversation_history.append({"role": "user", "content": data + "Based on the previous conversations, create a response."})
+        percentage = 50 + (difficulty-1)*15
+        conversation_history.append({"role": "user", "content": data + f"Based on the previous conversations and assuming there is {difficulty} chance they are human, create a response."})
     chat_response = client.chat.complete(
             model = model,
             temperature = 0.5,
@@ -97,7 +99,7 @@ def post_data():
     if data:
         print("recived")
         # You can process the data here as needed
-        response = prompt(data["prompt"], data["count"], QUESTIONS)
+        response = prompt(data["prompt"], data["count"], QUESTIONS, data["difficulty"])
         print(response)
         
         return jsonify({"response": response}), 201  # Respond with the received data
