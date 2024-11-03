@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd4wwhcdyhoxp"]
+
+[ext_resource type="PackedScene" uid="uid://vnwr3jimmylu" path="res://scenes/levels/level_template.tscn" id="1_uepbj"]
+[ext_resource type="PackedScene" uid="uid://bke0dgo8ox7eu" path="res://scenes/wall.tscn" id="2_srdr6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fecjx"]
+vertices = PackedVector2Array(1072, 568, 80, 568, 259.227, 375.344, 1072, 80, 92.7734, 375.344, 80, 80, 92.7734, 254.656, 259.227, 254.656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(4, 1, 5, 6), PackedInt32Array(3, 2, 7), PackedInt32Array(5, 3, 7, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(24, 22, 1132, 17, 1131, 620, 25, 622)])
+source_geometry_mode = 1
+agent_radius = 30.0
+
+[node name="Level1" instance=ExtResource("1_uepbj")]
+
+[node name="NavigationRegion2D" parent="." index="4"]
+navigation_polygon = SubResource("NavigationPolygon_fecjx")
+
+[node name="Wall5" parent="." index="5" instance=ExtResource("2_srdr6")]
+position = Vector2(176, 315)
+scale = Vector2(106.468, 60.6893)

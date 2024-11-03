@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://vnwr3jimmylu"]
+[gd_scene load_steps=3 format=3 uid="uid://vnwr3jimmylu"]
 
 [ext_resource type="PackedScene" uid="uid://bke0dgo8ox7eu" path="res://scenes/wall.tscn" id="1_x50qu"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_iil7k"]
+vertices = PackedVector2Array(1072, 80, 1072, 265, 845, 265, 80, 80, 845, 385, 1072, 385, 1072, 568, 80, 568, 80, 385, 725, 385, 725, 265, 80, 265)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 8, 9), PackedInt32Array(4, 7, 9), PackedInt32Array(2, 4, 9, 10), PackedInt32Array(3, 2, 10), PackedInt32Array(3, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(24, 22, 1132, 17, 1131, 620, 25, 622)])
+source_geometry_mode = 1
+agent_radius = 30.0
 
 [node name="Level1" type="Node2D"]
 
@@ -19,3 +26,6 @@ scale = Vector2(1152, 50)
 [node name="Wall4" parent="." instance=ExtResource("1_x50qu")]
 position = Vector2(1127, 324)
 scale = Vector2(50, 648)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_iil7k")
