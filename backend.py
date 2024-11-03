@@ -53,7 +53,7 @@ def prompt(data, count, QUESTIONS, difficulty = None):
         conversation_history = []
         number = random.randint(0, len(QUESTIONS)-1)
         question = QUESTIONS[number]
-        conversation_history.append(question)
+        conversation_history.append({"role": "assistant", "content": question})
         return question
     elif count == 1:
         percentage = 50 + (difficulty-1)*15
